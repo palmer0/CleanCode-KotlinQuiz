@@ -2,7 +2,7 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.content.Intent
 import android.support.v4.app.Fragment
-import es.ulpgc.eite.cleancode.kotlin.quiz.AppMediator
+import es.ulpgc.eite.cleancode.kotlin.quiz.app.AppMediator
 import es.ulpgc.eite.cleancode.kotlin.quiz.cheat.CheatActivity
 import java.lang.ref.WeakReference
 

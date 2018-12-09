@@ -1,4 +1,4 @@
-package es.ulpgc.eite.cleancode.kotlin.quiz
+package es.ulpgc.eite.cleancode.kotlin.quiz.app
 
 import android.app.Application
 
