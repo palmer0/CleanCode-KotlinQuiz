@@ -1,0 +1,58 @@
+<resources>
+    <string name="app_name">Quiz</string>
+    <string name="question_label">Question</string>
+    <string name="answer_label">Answer</string>
+    <string name="button_label">Button</string>
+    <string name="false_label">False</string>
+    <string name="true_label">True</string>
+    <string name="next_label">Next</string>
+    <string name="cheat_label">Cheat</string>
+    <string name="correct_label">Correct!</string>
+    <string name="incorrect_label">Incorrect!</string>
+
+    <string-array name="questions">
+        ![CDATA[]]
+        <item>Christian Bale played Batman in \'The Dark Knight Rises\'?</item>
+        <item>The Gremlins movie was released in 1986?</item>
+        <item>Brad Pitt played Danny Ocean in Ocean\'s Eleven, Ocean\'s Twelve and Ocean\'s Thirteen?</item>
+        <item>A spoon full of sugar\' came from the 1964 movie Mary Poppins?</item>
+        <item>The song “I don\'t want to miss a thing” featured in Armageddon?</item>
+        <item>Will Smith has a son called Jaden?</item>
+        <item>Mark Ruffalo played Teddy Daniels in Shutter Island?</item>
+        <item>Mike Myers starred in the \'Cat in the Hat\' 2003 children\'s movie?</item>
+        <item>Ryan Reynolds is married to Scarlett Johansson?</item>
+        <item>The movie \'White House Down\' was released in 2014?</item>
+        <item>Michael Douglas starred in Basic Instinct, Falling Down and The Game?</item>
+        <item>Colin Firth won an Oscar for his performance in the historical movie \'The King\'s Speech\'?</item>
+        <item>Cameron Diaz and Ashton Kutcher starred in the movie \'What happens in Vegas\'?</item>
+        <item>Arnold Schwarzenegger played lead roles in Rocky, Rambo and Judge Dredd?</item>
+        <item>The Titanic movie featured the song \'My Heart Will Go On\'?</item>
+        <item>Eddie Murphy narrates the voice of Donkey in the Shrek movies?</item>
+        <item>Nicole Kidman played Poison Ivy in \'Batman and Robin\'?</item>
+        <item>The Lara Croft: Tomb Raider movie was released in 2003?</item>
+        <item>Hallie Berry played the character Rogue in X Men?</item>
+        <item>The Teenage Mutant Ninja Turtles are named after famous artists?</item>
+    </string-array>
+
+    <string-array name="answers">
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>true</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>true</item>
+        <item>true</item>
+        <item>false</item>
+        <item>false</item>
+        <item>false</item>
+    </string-array>
+</resources>
