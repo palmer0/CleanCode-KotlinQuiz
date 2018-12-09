@@ -35,19 +35,6 @@ class CheatModel(
 
     }
 
-    /*
-    override fun fetchCheatData(): String? {
-        // Log.d(TAG, "fetchCheatData()")
-
-        var text = "Hello"
-        //var text = fragment?.get()?.resources?.getString(R.string.text)
-        //var text = activity?.get()?.resources?.getString(R.string.text)
-        Log.d(TAG, "text: $text")
-
-        return text
-    }
-    */
-
     companion object {
         const val TAG = "CheatModel"
     }

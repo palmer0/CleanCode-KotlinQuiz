@@ -15,7 +15,6 @@ interface CheatContract {
     }
 
     interface Model {
-        //fun fetchCheatData(): String?
         fun fetchCheatData() : CheatData
     }
 }

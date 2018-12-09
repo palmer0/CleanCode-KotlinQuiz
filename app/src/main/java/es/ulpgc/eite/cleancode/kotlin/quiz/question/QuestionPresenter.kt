@@ -25,23 +25,12 @@ class QuestionPresenter : QuestionContract.Presenter {
 
         // Call the model
         val data = model.fetchQuestionData()
-        //val data = model.fetchQuestionData(viewModel.quizIndex)
-        //viewModel.data = model.fetchQuestionData(viewModel.quizIndex)
-        //viewModel.questionText = data.questionText
         viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
-        //viewModel.answerText = data.answerText
 
         viewModel.trueLabel = data.trueLabel
         viewModel.falseLabel = data.falseLabel
         viewModel.cheatLabel = data.cheatLabel
         viewModel.nextLabel = data.nextLabel
-
-
-        /*
-        var questionText = model.fetchQuestionData()
-        Log.d(TAG, "questionText: $questionText")
-        viewModel.questionText = questionText
-        */
 
         // Call the view
         view?.get()?.displayQuestionData(viewModel)
@@ -88,19 +77,16 @@ class QuestionPresenter : QuestionContract.Presenter {
     override fun clickCheatButton() {
         val answer = model.getCurrentAnswer(viewModel.quizIndex)
 
-        //router.passDataToCheatScreen(viewModel.answerText)
         router.passDataToCheatScreen(answer)
         router.navigateToCheatScreen()
     }
 
     override fun clickFalseButton() {
         fetchAnswerData(false)
-
     }
 
     override fun clickTrueButton() {
         fetchAnswerData(true)
-
     }
 
 

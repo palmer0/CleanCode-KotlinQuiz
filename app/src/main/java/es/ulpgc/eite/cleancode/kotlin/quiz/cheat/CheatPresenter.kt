@@ -16,18 +16,6 @@ class CheatPresenter : CheatContract.Presenter {
 
         val data = model.fetchCheatData()
 
-        /*
-        val answer = router.getDataFromQuestionScreen()
-
-        answer?.let {
-            if (answer) {
-                viewModel.answerText = data.trueLabel
-            } else {
-                viewModel.answerText = data.falseLabel
-            }
-        }
-        */
-
         viewModel.questionText = data.questionText
         viewModel.yesLabel = data.yesLabel
         viewModel.noLabel = data.noLabel
@@ -49,7 +37,6 @@ class CheatPresenter : CheatContract.Presenter {
 
             Log.d(TAG, "answer: $answer")
 
-            //router.passDataToQuestionScreen(viewModel.answerCheated)
             router.passDataToQuestionScreen(true)
 
             val data = model.fetchCheatData()
@@ -69,27 +56,6 @@ class CheatPresenter : CheatContract.Presenter {
         }
     }
 
-
-    /*
-    override fun fetchCheatData() {
-        // Log.d(TAG, "fetchCheatData()")
-
-        // Call the model
-        var text = model.fetchCheatData()
-        Log.d(TAG, "text: $text")
-        viewModel.text = text
-
-        // Call the view
-        view?.get()?.displayCheatData(viewModel)
-    }
-    */
-
-    /*
-    override fun clickCheatButton() {
-        router.passDataToCheatScreen(viewModel.answerText)
-        router.navigateToCheatScreen()
-    }
-    */
 
     companion object {
         const val TAG = "CheatPresenter"

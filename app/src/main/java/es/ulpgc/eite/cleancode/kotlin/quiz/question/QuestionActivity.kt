@@ -59,11 +59,6 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
         // Log.d(TAG, "displayQuestionData()")
 
         // Deal with the data, update the states, ui etc..
-        // Log.d(TAG, "text = $viewModel.text")
-        //val textView = findViewById<TextView>(R.id.text)
-        //textView.text = viewModel.text
-
-
         questionText.text = viewModel.questionText
         answerText.text = viewModel.answerText
 

@@ -13,7 +13,6 @@ import es.ulpgc.eite.cleancode.kotlin.quiz.R
 class CheatFragment : Fragment(), CheatContract.View {
 
     lateinit var presenter: CheatContract.Presenter
-    //lateinit var rootView: View
 
     lateinit var yesButton: Button
     lateinit var noButton: Button
@@ -56,13 +55,7 @@ class CheatFragment : Fragment(), CheatContract.View {
     override fun displayCheatData(viewModel: CheatViewModel) {
         // Log.d(TAG, "displayCheatData()")
 
-        /*
         // Deal with the data, update the states, ui etc..
-        // Log.d(TAG, "text = $viewModel.text")
-        val textView = rootView.findViewById<TextView>(R.id.questionText)
-        textView.text = viewModel.text
-        */
-
         questionText.text = viewModel.questionText
         answerText.text = viewModel.answerText
 

@@ -24,18 +24,8 @@ class CheatRouter {
         val answer = mediator.answer
         mediator.answer = null
         return answer
-        //return mediator.answer
     }
 
-    /*
-    fun getDataFromQuestionScreen(): String? {
-        val mediator = activity?.get()?.application as AppMediator
-        //return mediator.answerText
-        val text = mediator.answerText
-        mediator.answerText = null
-        return text
-    }
-    */
 
     fun navigateToQuestionScreen() {
         activity?.get()?.finish()

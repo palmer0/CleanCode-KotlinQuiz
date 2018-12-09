@@ -14,7 +14,6 @@ class QuestionFragment : Fragment(), QuestionContract.View {
 
     lateinit var presenter: QuestionContract.Presenter
 
-    //lateinit var rootView: View
     lateinit var trueButton: Button
     lateinit var falseButton: Button
     lateinit var cheatButton: Button
@@ -62,26 +61,9 @@ class QuestionFragment : Fragment(), QuestionContract.View {
     override fun displayQuestionData(viewModel: QuestionViewModel) {
         // Log.d(TAG, "displayQuestionData()")
 
-
         // Deal with the data, update the states, ui etc..
-        // Log.d(TAG, "text = $viewModel.text")
-
-        /*
-        val questionText = rootView.findViewById<TextView>(R.id.questionText)
-        questionText.text = viewModel.questionText
-        val answerText = rootView.findViewById<TextView>(R.id.answerText)
-        answerText.text = viewModel.answerText
-        */
-
         questionText.text = viewModel.questionText
         answerText.text = viewModel.answerText
-
-        /*
-        val yesButton = rootView.findViewById<Button>(R.id.yesButton)
-        val noButton = rootView.findViewById<Button>(R.id.noButton)
-        val cheatButton = rootView.findViewById<Button>(R.id.cheatButton)
-        val nextButton = rootView.findViewById<Button>(R.id.nextButton)
-        */
 
         trueButton.text = viewModel.trueLabel
         falseButton.text = viewModel.falseLabel

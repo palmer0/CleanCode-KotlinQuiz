@@ -8,10 +8,6 @@ class QuestionViewModel : ViewModel() {
     var questionText: String? = null
     var answerText: String? = null
 
-    //lateinit var data: QuestionData
-
-    //val questionLabel: String? = null
-    //val answerLabel: String? = null
     var trueLabel: String? = null
     var falseLabel: String? = null
     var cheatLabel: String? = null
