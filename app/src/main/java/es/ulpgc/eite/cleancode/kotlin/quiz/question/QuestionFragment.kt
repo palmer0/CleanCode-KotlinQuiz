@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
+import QuestionContract
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
@@ -76,8 +77,8 @@ class QuestionFragment : Fragment(), QuestionContract.View {
         answerText.text = viewModel.answerText
 
         /*
-        val trueButton = rootView.findViewById<Button>(R.id.trueButton)
-        val falseButton = rootView.findViewById<Button>(R.id.falseButton)
+        val yesButton = rootView.findViewById<Button>(R.id.yesButton)
+        val noButton = rootView.findViewById<Button>(R.id.noButton)
         val cheatButton = rootView.findViewById<Button>(R.id.cheatButton)
         val nextButton = rootView.findViewById<Button>(R.id.nextButton)
         */

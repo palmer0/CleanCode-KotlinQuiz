@@ -4,6 +4,7 @@ import android.app.Application
 
 class AppMediator: Application() {
 
-    var answerText: String? = null
-
+    var answer: Boolean? = null
+    //var answerText: String? = null
+    var cheated: Boolean? = null
 }

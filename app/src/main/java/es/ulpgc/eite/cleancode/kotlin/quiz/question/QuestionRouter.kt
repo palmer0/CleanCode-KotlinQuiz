@@ -1,27 +1,34 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.content.Intent
-import java.lang.ref.WeakReference
 import android.support.v4.app.Fragment
 import es.ulpgc.eite.cleancode.kotlin.quiz.AppMediator
 import es.ulpgc.eite.cleancode.kotlin.quiz.cheat.CheatActivity
+import java.lang.ref.WeakReference
 
 class QuestionRouter {
 
     var fragment: WeakReference<QuestionFragment>? = null
     var activity: WeakReference<QuestionActivity>? = null
 
-    fun passDataToCheatScreen(answerText: String?) {
+    /*
+    fun passDataToCheatScreen(text: String?) {
         val mediator = activity?.get()?.application as AppMediator
-        mediator.answerText = answerText
+        mediator.answerText = text
+    }
+    */
+
+    fun passDataToCheatScreen(answer: Boolean?) {
+        val mediator = activity?.get()?.application as AppMediator
+        mediator.answer = answer
     }
 
-    fun getDataFromPreviousScreen(): String? {
-        //val mediator = activity?.get()?.application as AppMediator
-        //val text = mediator.text
-        //return text
+    fun getDataFromCheatScreen(): Boolean? {
+        val mediator = activity?.get()?.application as AppMediator
+        val cheated = mediator.cheated
+        mediator.cheated = null
+        return cheated
 
-        return null
     }
 
     fun navigateToCheatScreen() {

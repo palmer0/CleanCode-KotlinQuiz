@@ -1,7 +1,8 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
-import java.lang.ref.WeakReference
+import QuestionContract
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
+import java.lang.ref.WeakReference
 
 data class QuestionData(
     //val questionText: String?, val answerText: String?,
@@ -23,9 +24,9 @@ class QuestionModel(
         // Log.d(TAG, "fetchQuestionData()")
 
         /*
-        var falseLabel =
+        var noLabel =
             fragment?.get()?.resources?.getString(R.string.false_label)
-        var trueLabel =
+        var yesLabel =
             fragment?.get()?.resources?.getString(R.string.true_label)
         var nextLabel =
             fragment?.get()?.resources?.getString(R.string.next_label)
@@ -65,9 +66,9 @@ class QuestionModel(
 //        */
 //
 //
-//        var falseLabel =
+//        var noLabel =
 //            fragment?.get()?.resources?.getString(R.string.false_label)
-//        var trueLabel =
+//        var yesLabel =
 //            fragment?.get()?.resources?.getString(R.string.true_label)
 //        var nextLabel =
 //            fragment?.get()?.resources?.getString(R.string.next_label)
@@ -75,12 +76,12 @@ class QuestionModel(
 //            fragment?.get()?.resources?.getString(R.string.cheat_label)
 //
 //
-//        //return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
+//        //return QuestionData(yesLabel, noLabel, cheatLabel, nextLabel)
 //
 //        return QuestionData(
 //            //questions?.get(quizIndex), answers?.get(quizIndex),
 //            questions?.get(quizIndex), "",
-//            trueLabel, falseLabel, cheatLabel, nextLabel
+//            yesLabel, noLabel, cheatLabel, nextLabel
 //        )
 //
 //    }

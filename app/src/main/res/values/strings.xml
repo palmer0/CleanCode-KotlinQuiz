@@ -9,9 +9,11 @@
     <string name="cheat_label">Cheat</string>
     <string name="correct_label">Correct!</string>
     <string name="incorrect_label">Incorrect!</string>
+    <string name="question">Are you sure?</string>
+    <string name="yes_label">Yes</string>
+    <string name="no_label">No</string>
 
     <string-array name="questions">
-        ![CDATA[]]
         <item>Christian Bale played Batman in \'The Dark Knight Rises\'?</item>
         <item>The Gremlins movie was released in 1986?</item>
         <item>Brad Pitt played Danny Ocean in Ocean\'s Eleven, Ocean\'s Twelve and Ocean\'s Thirteen?</item>

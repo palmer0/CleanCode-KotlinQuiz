@@ -1,5 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
+import QuestionContract
 import java.lang.ref.WeakReference
 
 class QuestionPresenter : QuestionContract.Presenter {
@@ -11,6 +12,16 @@ class QuestionPresenter : QuestionContract.Presenter {
 
     override fun fetchQuestionData() {
         // Log.d(TAG, "fetchQuestionData()")
+
+        val cheated = router.getDataFromCheatScreen()
+
+        cheated?.let {
+
+            if(it) {
+                clickNextButton()
+                return
+            }
+        }
 
         // Call the model
         val data = model.fetchQuestionData()
@@ -75,7 +86,10 @@ class QuestionPresenter : QuestionContract.Presenter {
     }
 
     override fun clickCheatButton() {
-        router.passDataToCheatScreen(viewModel.answerText)
+        val answer = model.getCurrentAnswer(viewModel.quizIndex)
+
+        //router.passDataToCheatScreen(viewModel.answerText)
+        router.passDataToCheatScreen(answer)
         router.navigateToCheatScreen()
     }
 

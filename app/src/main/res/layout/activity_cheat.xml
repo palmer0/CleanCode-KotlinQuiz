@@ -1,6 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+    <Space android:layout_width="match_parent"
+           android:layout_height="20dp"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/question_label"
+            android:id="@+id/questionText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:gravity="center_horizontal"/>
+
+    <Space android:layout_width="match_parent"
+           android:layout_height="20dp"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal">
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/button_label"
+                android:id="@+id/trueButton"/>
+
+        <Button android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/button_label"
+                android:id="@+id/falseButton"/>
+
+    </LinearLayout>
+
+    <Space android:layout_width="match_parent"
+           android:layout_height="20dp"/>
+
+    <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            tools:text="@string/answer_label"
+            android:id="@+id/answerText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            android:gravity="center_horizontal"/>
+
+    <Space android:layout_width="match_parent"
+           android:layout_height="20dp"/>
+
+
+
+</LinearLayout>
+
+<!--
 <FrameLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/container"/>
+-->
