@@ -12,7 +12,6 @@ class QuestionRouter {
     var activity: WeakReference<QuestionActivity>? = null
 
     fun passDataToCheatScreen(answerText: String?) {
-        //val mediator: AppMediator = activity?.get()?.application as AppMediator
         val mediator = activity?.get()?.application as AppMediator
         mediator.answerText = answerText
     }
