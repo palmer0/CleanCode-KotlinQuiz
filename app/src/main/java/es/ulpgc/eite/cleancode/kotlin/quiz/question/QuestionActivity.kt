@@ -1,22 +1,23 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
-import android.util.Log
+import QuestionContract
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
-import android.widget.TextView
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
+import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity : AppCompatActivity(), QuestionContract.View {
 
     lateinit var presenter: QuestionContract.Presenter
 
+    /*
     lateinit var trueButton: Button
     lateinit var falseButton: Button
     lateinit var cheatButton: Button
     lateinit var nextButton: Button
     lateinit var questionText: TextView
     lateinit var answerText: TextView
+    */
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +31,14 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
         }
         */
 
+        /*
         trueButton = findViewById(R.id.trueButton)
         falseButton = findViewById(R.id.falseButton)
         cheatButton = findViewById(R.id.cheatButton)
         nextButton = findViewById(R.id.nextButton)
         questionText = findViewById(R.id.questionText)
         answerText = findViewById(R.id.answerText)
+        */
 
         trueButton.setOnClickListener { presenter.clickTrueButton() }
         falseButton.setOnClickListener { presenter.clickFalseButton() }
@@ -44,6 +47,11 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
 
         // Do the setup
         QuestionConfigurator.configureActivity(this)
+
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         // Do some work
         fetchData()

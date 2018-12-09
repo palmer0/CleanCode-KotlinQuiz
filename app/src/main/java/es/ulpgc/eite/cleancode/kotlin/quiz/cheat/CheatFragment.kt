@@ -6,18 +6,19 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
+import kotlinx.android.synthetic.main.fragment_cheat.*
 
 class CheatFragment : Fragment(), CheatContract.View {
 
     lateinit var presenter: CheatContract.Presenter
 
+    /*
     lateinit var yesButton: Button
     lateinit var noButton: Button
     lateinit var questionText: TextView
     lateinit var answerText: TextView
+    */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,10 +30,12 @@ class CheatFragment : Fragment(), CheatContract.View {
             R.layout.fragment_cheat, container, false
         )
 
+        /*
         yesButton = rootView.findViewById(R.id.trueButton)
         noButton = rootView.findViewById(R.id.falseButton)
         questionText = rootView.findViewById(R.id.questionText)
         answerText = rootView.findViewById(R.id.answerText)
+        */
 
         yesButton.setOnClickListener { presenter.clickYesButton() }
         noButton.setOnClickListener { presenter.clickNoButton() }

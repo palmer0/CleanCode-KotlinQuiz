@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import QuestionContract
+import android.util.Log
 import java.lang.ref.WeakReference
 
 class QuestionPresenter : QuestionContract.Presenter {
@@ -16,6 +17,7 @@ class QuestionPresenter : QuestionContract.Presenter {
         val cheated = router.getDataFromCheatScreen()
 
         cheated?.let {
+            Log.d(TAG, "cheated: $it")
 
             if(it) {
                 clickNextButton()

@@ -30,12 +30,12 @@
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="@string/button_label"
-                android:id="@+id/trueButton"/>
+                android:id="@+id/yesButton"/>
 
         <Button android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 tools:text="@string/button_label"
-                android:id="@+id/falseButton"/>
+                android:id="@+id/noButton"/>
 
     </LinearLayout>
 

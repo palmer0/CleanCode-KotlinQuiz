@@ -6,20 +6,21 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.TextView
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
+import kotlinx.android.synthetic.main.fragment_question.*
 
 class QuestionFragment : Fragment(), QuestionContract.View {
 
     lateinit var presenter: QuestionContract.Presenter
 
+    /*
     lateinit var trueButton: Button
     lateinit var falseButton: Button
     lateinit var cheatButton: Button
     lateinit var nextButton: Button
     lateinit var questionText: TextView
     lateinit var answerText: TextView
+    */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,12 +32,14 @@ class QuestionFragment : Fragment(), QuestionContract.View {
             R.layout.fragment_question, container, false
         )
 
+        /*
         trueButton = rootView.findViewById(R.id.trueButton)
         falseButton = rootView.findViewById(R.id.falseButton)
         cheatButton = rootView.findViewById(R.id.cheatButton)
         nextButton = rootView.findViewById(R.id.nextButton)
         questionText = rootView.findViewById(R.id.questionText)
         answerText = rootView.findViewById(R.id.answerText)
+        */
 
         trueButton.setOnClickListener { presenter.clickTrueButton() }
         falseButton.setOnClickListener { presenter.clickFalseButton() }
