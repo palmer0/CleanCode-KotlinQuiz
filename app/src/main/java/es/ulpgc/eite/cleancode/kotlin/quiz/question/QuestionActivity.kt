@@ -21,15 +21,17 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_question)
+        //setContentView(R.layout.activity_question)
+        setContentView(R.layout.activity_question_fragment)
 
-        /*
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, QuestionFragment())
                 .commitNow()
         }
-        */
+
+        return
 
         /*
         trueButton = findViewById(R.id.trueButton)
@@ -50,12 +52,16 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
 
     }
 
+
     override fun onResume() {
         super.onResume()
+
+        return
 
         // Do some work
         fetchData()
     }
+
 
     fun fetchData() {
 

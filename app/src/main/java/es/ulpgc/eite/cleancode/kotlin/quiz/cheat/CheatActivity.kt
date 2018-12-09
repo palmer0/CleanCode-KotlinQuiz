@@ -3,8 +3,6 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 import CheatContract
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.widget.Button
-import android.widget.TextView
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import kotlinx.android.synthetic.main.activity_cheat.*
 
@@ -23,6 +21,7 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cheat)
+        //setContentView(R.layout.activity_cheat_fragment)
 
         /*
         if (savedInstanceState == null) {

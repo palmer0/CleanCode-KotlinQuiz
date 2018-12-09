@@ -39,7 +39,6 @@ class QuestionModel(
     override fun fetchQuestionData() : QuestionData {
         // Log.d(TAG, "fetchQuestionData()")
 
-
         activity?.get()?.resources?.let {
             var falseLabel = it.getString(R.string.false_label)
             var trueLabel = it.getString(R.string.true_label)
@@ -49,12 +48,27 @@ class QuestionModel(
             return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
         }
 
+        fragment?.get()?.resources?.let {
+            var falseLabel = it.getString(R.string.false_label)
+            var trueLabel = it.getString(R.string.true_label)
+            var nextLabel = it.getString(R.string.next_label)
+            var cheatLabel = it.getString(R.string.cheat_label)
+
+            return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
+        }
     }
 
     override fun fetchAnswerData() : AnswerData {
         // Log.d(TAG, "fetchAnswerData()")
 
         activity?.get()?.resources?.let {
+            var correctLabel = it.getString(R.string.correct_label)
+            var incorrectLabel = it.getString(R.string.incorrect_label)
+
+            return AnswerData(correctLabel, incorrectLabel)
+        }
+
+        fragment?.get()?.resources?.let {
             var correctLabel = it.getString(R.string.correct_label)
             var incorrectLabel = it.getString(R.string.incorrect_label)
 
@@ -81,6 +95,11 @@ class QuestionModel(
             return answers.get(index)?.toBoolean()
         }
 
+        fragment?.get()?.resources?.let {
+            val answers = it.getStringArray(R.array.answers)
+            return answers.get(index)?.toBoolean()
+        }
+
         /*
         val answers =
             activity?.get()?.resources?.getStringArray(R.array.answers)
@@ -91,6 +110,11 @@ class QuestionModel(
 
     override fun getCurrentQuestion(index: Int): String? {
         activity?.get()?.resources?.let {
+            val questions = it.getStringArray(R.array.questions)
+            return questions.get(index)
+        }
+
+        fragment?.get()?.resources?.let {
             val questions = it.getStringArray(R.array.questions)
             return questions.get(index)
         }

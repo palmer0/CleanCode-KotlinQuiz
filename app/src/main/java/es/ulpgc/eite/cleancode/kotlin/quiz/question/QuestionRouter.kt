@@ -13,21 +13,70 @@ class QuestionRouter {
 
 
     fun passDataToCheatScreen(answer: Boolean?) {
+        activity?.get()?.let {
+            val mediator = it.application as AppMediator
+            mediator.answer = answer
+        }
+
+        /*
         val mediator = activity?.get()?.application as AppMediator
         mediator.answer = answer
+        */
+
+        fragment?.get()?.activity?.let {
+            val mediator = it.application as AppMediator
+            mediator.answer = answer
+        }
     }
 
     fun getDataFromCheatScreen(): Boolean? {
+        activity?.get()?.let {
+            val mediator = it.application as AppMediator
+            val cheated = mediator.cheated
+            mediator.cheated = null
+            return cheated
+        }
+
+        fragment?.get()?.activity?.let {
+            val mediator = it.application as AppMediator
+            val cheated = mediator.cheated
+            mediator.cheated = null
+            return cheated
+        }
+
+        /*
         val mediator = activity?.get()?.application as AppMediator
         val cheated = mediator.cheated
         mediator.cheated = null
         return cheated
-
+        */
     }
 
     fun navigateToCheatScreen() {
+
+        activity?.get()?.let {
+            val intent = Intent(it, CheatActivity::class.java)
+            it.startActivity(intent)
+        }
+
+        /*
         val intent = Intent(activity?.get(), CheatActivity::class.java)
         activity?.get()?.startActivity(intent)
+        */
+
+        fragment?.get()?.activity?.let {
+            val intent = Intent(it, CheatActivity::class.java)
+            it.startActivity(intent)
+        }
+
+        /*
+        fragment?.get()?.let {
+            it.childFragmentManager.beginTransaction()
+                .replace(R.id.container, QuestionFragment())
+                .commitNow()
+        }
+        */
+
     }
 
     fun determineNextScreen(position: Int): Fragment {
