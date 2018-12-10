@@ -16,7 +16,6 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
         //setContentView(R.layout.activity_question)
         setContentView(R.layout.activity_question_fragment)
 
-
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, QuestionFragment())

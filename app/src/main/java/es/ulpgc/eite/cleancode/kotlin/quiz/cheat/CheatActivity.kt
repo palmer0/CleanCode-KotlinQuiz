@@ -14,9 +14,10 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_cheat)
-        //setContentView(R.layout.activity_cheat_fragment)
 
         /*
+        setContentView(R.layout.activity_cheat_fragment)
+
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
                 .replace(R.id.container, CheatFragment())
