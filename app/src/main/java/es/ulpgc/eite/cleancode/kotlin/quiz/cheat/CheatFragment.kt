@@ -32,8 +32,8 @@ class CheatFragment : Fragment(), CheatContract.View {
             R.layout.fragment_cheat, container, false
         )
 
-        yesButton = rootView.findViewById(R.id.trueButton)
-        noButton = rootView.findViewById(R.id.falseButton)
+        yesButton = rootView.findViewById(R.id.yesButton)
+        noButton = rootView.findViewById(R.id.noButton)
         questionText = rootView.findViewById(R.id.questionText)
         answerText = rootView.findViewById(R.id.answerText)
 
