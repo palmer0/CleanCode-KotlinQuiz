@@ -3,6 +3,7 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.question
 import QuestionContract
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import kotlinx.android.synthetic.main.activity_question.*
 
@@ -52,7 +53,7 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
     }
 
     override fun displayQuestionData(viewModel: QuestionViewModel) {
-        // Log.d(TAG, "displayQuestionData()")
+        Log.d(TAG, "displayQuestionData()")
 
         // Deal with the data, update the states, ui etc..
         questionText.text = viewModel.questionText

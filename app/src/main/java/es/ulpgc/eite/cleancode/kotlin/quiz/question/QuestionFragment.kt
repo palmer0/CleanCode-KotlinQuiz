@@ -3,6 +3,7 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.question
 import QuestionContract
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -68,7 +69,7 @@ class QuestionFragment : Fragment(), QuestionContract.View {
     }
 
     override fun displayQuestionData(viewModel: QuestionViewModel) {
-        // Log.d(TAG, "displayQuestionData()")
+        Log.d(TAG, "displayQuestionData()")
 
         // Deal with the data, update the states, ui etc..
         questionText.text = viewModel.questionText

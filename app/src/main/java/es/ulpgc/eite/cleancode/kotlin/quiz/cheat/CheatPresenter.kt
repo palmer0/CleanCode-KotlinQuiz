@@ -32,9 +32,11 @@ class CheatPresenter : CheatContract.Presenter {
         answer?.let {
 
             Log.d(TAG, "answer: $answer")
+            updateCheatData(answer)
 
             router.passDataToQuestionScreen(true)
 
+            /*
             val data = model.fetchCheatData()
 
             if (answer) {
@@ -43,13 +45,29 @@ class CheatPresenter : CheatContract.Presenter {
                 viewModel.answerText = data.falseLabel
             }
 
-
             viewModel.yesEnabled = false
             viewModel.noEnabled = false
 
             // Call the view
             view?.get()?.displayCheatData(viewModel)
+            */
         }
+    }
+
+    private fun updateCheatData(answer: Boolean) {
+        val data = model.fetchCheatData()
+
+        if (answer) {
+            viewModel.answerText = data.trueLabel
+        } else {
+            viewModel.answerText = data.falseLabel
+        }
+
+        viewModel.yesEnabled = false
+        viewModel.noEnabled = false
+
+        // Call the view
+        view?.get()?.displayCheatData(viewModel)
     }
 
     override fun clickNoButton() {

@@ -3,20 +3,13 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 import CheatContract
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import kotlinx.android.synthetic.main.activity_cheat.*
 
 class CheatActivity : AppCompatActivity(), CheatContract.View {
 
     lateinit var presenter: CheatContract.Presenter
-
-    /*
-    lateinit var yesButton: Button
-    lateinit var noButton: Button
-    lateinit var questionText: TextView
-    lateinit var answerText: TextView
-    */
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,13 +22,6 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
                 .replace(R.id.container, CheatFragment())
                 .commitNow()
         }
-        */
-
-        /*
-        yesButton = findViewById(R.id.trueButton)
-        noButton = findViewById(R.id.falseButton)
-        questionText = findViewById(R.id.questionText)
-        answerText = findViewById(R.id.answerText)
         */
 
         yesButton.setOnClickListener { presenter.clickYesButton() }
@@ -55,7 +41,7 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
     }
 
     override fun displayCheatData(viewModel: CheatViewModel) {
-        // Log.d(TAG, "displayCheatData()")
+        Log.d(TAG, "displayCheatData()")
 
         // Deal with the data, update the states, ui etc..
         questionText.text = viewModel.questionText
