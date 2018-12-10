@@ -14,21 +14,72 @@ class CheatRouter {
         //mediator.text = text
     }
 
-    fun passDataToQuestionScreen(cheated: Boolean?) {
-        val mediator = activity?.get()?.application as AppMediator
+    private fun _passDataToQuestionScreen(
+        mediator: AppMediator, cheated: Boolean?) {
+
         mediator.cheated = cheated
     }
 
-    fun getDataFromQuestionScreen(): Boolean? {
+    fun passDataToQuestionScreen(cheated: Boolean?) {
+
+        activity?.get()?.let {
+            _passDataToQuestionScreen(it.application as AppMediator, cheated)
+            //val mediator = it.application as AppMediator
+            //mediator.cheated = cheated
+        }
+
+        /*
         val mediator = activity?.get()?.application as AppMediator
+        mediator.cheated = cheated
+        */
+
+        fragment?.get()?.activity?.let {
+            _passDataToQuestionScreen(it.application as AppMediator, cheated)
+        }
+    }
+
+    private fun _getDataFromQuestionScreen(mediator: AppMediator): Boolean? {
+        //val mediator = it.application as AppMediator
         val answer = mediator.answer
         mediator.answer = null
         return answer
     }
 
+    fun getDataFromQuestionScreen(): Boolean? {
+        activity?.get()?.let {
+            return _getDataFromQuestionScreen(it.application as AppMediator)
+
+            /*
+            val mediator = it.application as AppMediator
+            val answer = mediator.answer
+            mediator.answer = null
+            return answer
+            */
+        }
+
+        /*
+        val mediator = activity?.get()?.application as AppMediator
+        val answer = mediator.answer
+        mediator.answer = null
+        return answer
+        */
+
+        fragment?.get()?.activity?.let {
+            return _getDataFromQuestionScreen(it.application as AppMediator)
+        }
+    }
+
 
     fun navigateToQuestionScreen() {
-        activity?.get()?.finish()
+        //activity?.get()?.finish()
+
+        activity?.get()?.let {
+            it.finish()
+        }
+
+        fragment?.get()?.activity?.let {
+            it.finish()
+        }
     }
 
     fun navigateToNextScreen() {

@@ -12,7 +12,7 @@ class CheatPresenter : CheatContract.Presenter {
     lateinit var router: CheatRouter
 
     override fun fetchCheatData() {
-        // Log.d(TAG, "fetchCheatData()")
+        Log.d(TAG, "fetchCheatData()")
 
         val data = model.fetchCheatData()
 
@@ -24,12 +24,8 @@ class CheatPresenter : CheatContract.Presenter {
         view?.get()?.displayCheatData(viewModel)
     }
 
-    override fun clickNoButton() {
-        router.passDataToQuestionScreen(false)
-        router.navigateToQuestionScreen()
-    }
-
     override fun clickYesButton() {
+        Log.d(TAG, "clickYesButton()")
 
         val answer = router.getDataFromQuestionScreen()
 
@@ -56,6 +52,10 @@ class CheatPresenter : CheatContract.Presenter {
         }
     }
 
+    override fun clickNoButton() {
+        router.passDataToQuestionScreen(false)
+        router.navigateToQuestionScreen()
+    }
 
     companion object {
         const val TAG = "CheatPresenter"

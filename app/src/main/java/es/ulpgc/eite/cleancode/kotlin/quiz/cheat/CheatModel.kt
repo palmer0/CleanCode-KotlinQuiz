@@ -1,6 +1,8 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
 import CheatContract
+import android.content.res.Resources
+import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import java.lang.ref.WeakReference
 
@@ -17,9 +19,12 @@ class CheatModel(
 
 
     override fun fetchCheatData() : CheatData {
-        // Log.d(TAG, "fetchCheatData()")
+        Log.d(TAG, "fetchCheatData()")
 
         activity?.get()?.resources?.let {
+            return _fetchCheatData(it)
+
+            /*
             var falseLabel = it.getString(R.string.false_label)
             var trueLabel = it.getString(R.string.true_label)
             var noLabel = it.getString(R.string.no_label)
@@ -29,28 +34,25 @@ class CheatModel(
             return CheatData(
                 questionText, trueLabel, falseLabel, yesLabel, noLabel
             )
+            */
         }
 
+        fragment?.get()?.resources?.let {
+            return _fetchCheatData(it)
+        }
     }
 
-    /*
-    override fun fetchCheatData() : CheatData {
-        // Log.d(TAG, "fetchCheatData()")
+    private fun _fetchCheatData(resources: Resources) : CheatData {
+        var falseLabel = resources.getString(R.string.false_label)
+        var trueLabel = resources.getString(R.string.true_label)
+        var noLabel = resources.getString(R.string.no_label)
+        var yesLabel = resources.getString(R.string.yes_label)
+        var questionText = resources.getString(R.string.question)
 
-        var noLabel =
-            activity?.get()?.resources?.getString(R.string.no_label)
-        var yesLabel =
-            activity?.get()?.resources?.getString(R.string.yes_label)
-        var falseLabel =
-            activity?.get()?.resources?.getString(R.string.false_label)
-        var trueLabel =
-            activity?.get()?.resources?.getString(R.string.true_label)
-        var questionText =
-            activity?.get()?.resources?.getString(R.string.question)
-
-        return CheatData(questionText, trueLabel, falseLabel, yesLabel, noLabel)
+        return CheatData(
+            questionText, trueLabel, falseLabel, yesLabel, noLabel
+        )
     }
-    */
 
     companion object {
         const val TAG = "CheatModel"
