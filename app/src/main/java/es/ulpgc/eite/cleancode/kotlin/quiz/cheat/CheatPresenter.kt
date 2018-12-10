@@ -35,22 +35,6 @@ class CheatPresenter : CheatContract.Presenter {
             updateCheatData(answer)
 
             router.passDataToQuestionScreen(true)
-
-            /*
-            val data = model.fetchCheatData()
-
-            if (answer) {
-                viewModel.answerText = data.trueLabel
-            } else {
-                viewModel.answerText = data.falseLabel
-            }
-
-            viewModel.yesEnabled = false
-            viewModel.noEnabled = false
-
-            // Call the view
-            view?.get()?.displayCheatData(viewModel)
-            */
         }
     }
 

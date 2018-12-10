@@ -22,6 +22,8 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
                 .replace(R.id.container, CheatFragment())
                 .commitNow()
         }
+
+        return
         */
 
         yesButton.setOnClickListener { presenter.clickYesButton() }

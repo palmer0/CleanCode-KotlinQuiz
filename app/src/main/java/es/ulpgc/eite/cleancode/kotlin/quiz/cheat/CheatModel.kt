@@ -23,18 +23,6 @@ class CheatModel(
 
         activity?.get()?.resources?.let {
             return _fetchCheatData(it)
-
-            /*
-            var falseLabel = it.getString(R.string.false_label)
-            var trueLabel = it.getString(R.string.true_label)
-            var noLabel = it.getString(R.string.no_label)
-            var yesLabel = it.getString(R.string.yes_label)
-            var questionText = it.getString(R.string.question)
-
-            return CheatData(
-                questionText, trueLabel, falseLabel, yesLabel, noLabel
-            )
-            */
         }
 
         fragment?.get()?.resources?.let {

@@ -19,14 +19,7 @@ class CheatRouter {
 
         activity?.get()?.let {
             _passDataToQuestionScreen(it.application as AppMediator, cheated)
-            //val mediator = it.application as AppMediator
-            //mediator.cheated = cheated
         }
-
-        /*
-        val mediator = activity?.get()?.application as AppMediator
-        mediator.cheated = cheated
-        */
 
         fragment?.get()?.activity?.let {
             _passDataToQuestionScreen(it.application as AppMediator, cheated)
@@ -34,7 +27,6 @@ class CheatRouter {
     }
 
     private fun _getDataFromQuestionScreen(mediator: AppMediator): Boolean? {
-        //val mediator = it.application as AppMediator
         val answer = mediator.answer
         mediator.answer = null
         return answer
@@ -43,21 +35,7 @@ class CheatRouter {
     fun getDataFromQuestionScreen(): Boolean? {
         activity?.get()?.let {
             return _getDataFromQuestionScreen(it.application as AppMediator)
-
-            /*
-            val mediator = it.application as AppMediator
-            val answer = mediator.answer
-            mediator.answer = null
-            return answer
-            */
         }
-
-        /*
-        val mediator = activity?.get()?.application as AppMediator
-        val answer = mediator.answer
-        mediator.answer = null
-        return answer
-        */
 
         fragment?.get()?.activity?.let {
             return _getDataFromQuestionScreen(it.application as AppMediator)
@@ -66,8 +44,6 @@ class CheatRouter {
 
 
     fun navigateToQuestionScreen() {
-        //activity?.get()?.finish()
-
         activity?.get()?.let {
             it.finish()
         }
