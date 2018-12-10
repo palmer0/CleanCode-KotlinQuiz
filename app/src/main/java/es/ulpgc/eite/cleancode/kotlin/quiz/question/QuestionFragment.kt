@@ -55,6 +55,7 @@ class QuestionFragment : Fragment(), QuestionContract.View {
         return rootView
     }
 
+
     override fun onResume() {
         super.onResume()
 

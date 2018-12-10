@@ -54,6 +54,7 @@ class CheatFragment : Fragment(), CheatContract.View {
         // Call the presenter to fetch the data
         presenter.fetchCheatData()
     }
+    
 
     override fun displayCheatData(viewModel: CheatViewModel) {
         Log.d(TAG, "displayCheatData()")

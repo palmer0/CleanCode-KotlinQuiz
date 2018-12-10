@@ -26,28 +26,10 @@ class QuestionModel(
 
         activity?.get()?.resources?.let {
             return _fetchQuestionData(it)
-
-            /*
-            var falseLabel = it.getString(R.string.false_label)
-            var trueLabel = it.getString(R.string.true_label)
-            var nextLabel = it.getString(R.string.next_label)
-            var cheatLabel = it.getString(R.string.cheat_label)
-
-            return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
-            */
         }
 
         fragment?.get()?.resources?.let {
             return _fetchQuestionData(it)
-
-            /*
-            var falseLabel = it.getString(R.string.false_label)
-            var trueLabel = it.getString(R.string.true_label)
-            var nextLabel = it.getString(R.string.next_label)
-            var cheatLabel = it.getString(R.string.cheat_label)
-
-            return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
-            */
         }
     }
 
@@ -56,24 +38,10 @@ class QuestionModel(
 
         activity?.get()?.resources?.let {
             return _fetchAnswerData(it)
-
-            /*
-            var correctLabel = it.getString(R.string.correct_label)
-            var incorrectLabel = it.getString(R.string.incorrect_label)
-
-            return AnswerData(correctLabel, incorrectLabel)
-            */
         }
 
         fragment?.get()?.resources?.let {
             return _fetchAnswerData(it)
-
-            /*
-            var correctLabel = it.getString(R.string.correct_label)
-            var incorrectLabel = it.getString(R.string.incorrect_label)
-
-            return AnswerData(correctLabel, incorrectLabel)
-            */
         }
 
     }
@@ -87,6 +55,7 @@ class QuestionModel(
         return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
     }
 
+
     private fun _fetchAnswerData(resources: Resources) : AnswerData {
         var correctLabel = resources.getString(R.string.correct_label)
         var incorrectLabel = resources.getString(R.string.incorrect_label)
@@ -96,14 +65,10 @@ class QuestionModel(
 
     override fun getCurrentAnswer(index: Int): Boolean? {
         activity?.get()?.resources?.let {
-            //val answers = it.getStringArray(R.array.answers)
-            //return answers.get(index)?.toBoolean()
             return _getCurrentAnswer(it, index)
         }
 
         fragment?.get()?.resources?.let {
-            //val answers = it.getStringArray(R.array.answers)
-            //return answers.get(index)?.toBoolean()
             return _getCurrentAnswer(it, index)
         }
     }
@@ -111,14 +76,10 @@ class QuestionModel(
 
     override fun getCurrentQuestion(index: Int): String? {
         activity?.get()?.resources?.let {
-            //val questions = it.getStringArray(R.array.questions)
-            //return questions.get(index)
             return _getCurrentQuestion(it, index)
         }
 
         fragment?.get()?.resources?.let {
-            //val questions = it.getStringArray(R.array.questions)
-            //return questions.get(index)
             return _getCurrentQuestion(it, index)
         }
     }

@@ -38,6 +38,7 @@ class CheatPresenter : CheatContract.Presenter {
         }
     }
 
+
     private fun updateCheatData(answer: Boolean) {
         val data = model.fetchCheatData()
 
@@ -53,6 +54,7 @@ class CheatPresenter : CheatContract.Presenter {
         // Call the view
         view?.get()?.displayCheatData(viewModel)
     }
+
 
     override fun clickNoButton() {
         router.passDataToQuestionScreen(false)

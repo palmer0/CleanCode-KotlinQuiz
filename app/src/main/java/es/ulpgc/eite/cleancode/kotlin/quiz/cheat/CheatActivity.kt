@@ -55,6 +55,7 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
         noButton.isEnabled = viewModel.noEnabled
     }
 
+
     companion object {
         const val TAG = "CheatActivity"
     }

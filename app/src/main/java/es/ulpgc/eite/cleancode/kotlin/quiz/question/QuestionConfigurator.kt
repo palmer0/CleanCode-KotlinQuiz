@@ -1,7 +1,7 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
-import java.lang.ref.WeakReference
 import android.arch.lifecycle.ViewModelProviders
+import java.lang.ref.WeakReference
 
 object QuestionConfigurator {
 

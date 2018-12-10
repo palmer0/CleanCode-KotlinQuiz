@@ -9,6 +9,7 @@ class CheatRouter {
     var fragment: WeakReference<CheatFragment>? = null
     var activity: WeakReference<CheatActivity>? = null
 
+
     private fun _passDataToQuestionScreen(
         mediator: AppMediator, cheated: Boolean?) {
 
@@ -32,6 +33,7 @@ class CheatRouter {
         return answer
     }
 
+
     fun getDataFromQuestionScreen(): Boolean? {
         activity?.get()?.let {
             return _getDataFromQuestionScreen(it.application as AppMediator)
@@ -52,6 +54,7 @@ class CheatRouter {
             it.finish()
         }
     }
+
 
     fun passDataToNextScreen(text: String?) {
         //val mediator = activity?.get()?.application as AppMediator
