@@ -9,6 +9,7 @@ class CheatViewModel : ViewModel() {
 
     var yesLabel: String? = null
     var noLabel: String? = null
+
     var yesEnabled = true
     var noEnabled = true
 

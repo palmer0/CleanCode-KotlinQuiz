@@ -5,6 +5,7 @@ import android.arch.lifecycle.ViewModel
 class QuestionViewModel : ViewModel() {
 
     var quizIndex = 0
+
     var questionText: String? = null
     var answerText: String? = null
 
