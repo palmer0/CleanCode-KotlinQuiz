@@ -12,7 +12,7 @@ class QuestionPresenter : QuestionContract.Presenter {
     lateinit var router: QuestionRouter
 
     override fun fetchQuestionData() {
-        // Log.d(TAG, "fetchQuestionData()")
+        Log.d(TAG, "fetchQuestionData()")
 
         val cheated = router.getDataFromCheatScreen()
 
@@ -40,7 +40,7 @@ class QuestionPresenter : QuestionContract.Presenter {
 
 
     private fun fetchAnswerData(userAnswer: Boolean) {
-        // Log.d(TAG, "fetchAnswerData()")
+        Log.d(TAG, "fetchAnswerData()")
 
         // Call the model
         val answer = model.getCurrentAnswer(viewModel.quizIndex)
@@ -62,6 +62,8 @@ class QuestionPresenter : QuestionContract.Presenter {
     }
 
     override fun clickNextButton() {
+        Log.d(TAG, "clickNextButton()")
+
         viewModel.quizIndex++
 
         viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)

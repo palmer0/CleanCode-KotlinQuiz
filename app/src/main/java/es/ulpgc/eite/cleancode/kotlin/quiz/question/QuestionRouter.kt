@@ -18,11 +18,6 @@ class QuestionRouter {
             mediator.answer = answer
         }
 
-        /*
-        val mediator = activity?.get()?.application as AppMediator
-        mediator.answer = answer
-        */
-
         fragment?.get()?.activity?.let {
             val mediator = it.application as AppMediator
             mediator.answer = answer
@@ -44,12 +39,6 @@ class QuestionRouter {
             return cheated
         }
 
-        /*
-        val mediator = activity?.get()?.application as AppMediator
-        val cheated = mediator.cheated
-        mediator.cheated = null
-        return cheated
-        */
     }
 
     fun navigateToCheatScreen() {
@@ -58,11 +47,6 @@ class QuestionRouter {
             val intent = Intent(it, CheatActivity::class.java)
             it.startActivity(intent)
         }
-
-        /*
-        val intent = Intent(activity?.get(), CheatActivity::class.java)
-        activity?.get()?.startActivity(intent)
-        */
 
         fragment?.get()?.activity?.let {
             val intent = Intent(it, CheatActivity::class.java)

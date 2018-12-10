@@ -10,15 +10,6 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
 
     lateinit var presenter: QuestionContract.Presenter
 
-    /*
-    lateinit var trueButton: Button
-    lateinit var falseButton: Button
-    lateinit var cheatButton: Button
-    lateinit var nextButton: Button
-    lateinit var questionText: TextView
-    lateinit var answerText: TextView
-    */
-    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_question)
@@ -32,15 +23,6 @@ class QuestionActivity : AppCompatActivity(), QuestionContract.View {
         }
 
         return
-
-        /*
-        trueButton = findViewById(R.id.trueButton)
-        falseButton = findViewById(R.id.falseButton)
-        cheatButton = findViewById(R.id.cheatButton)
-        nextButton = findViewById(R.id.nextButton)
-        questionText = findViewById(R.id.questionText)
-        answerText = findViewById(R.id.answerText)
-        */
 
         trueButton.setOnClickListener { presenter.clickTrueButton() }
         falseButton.setOnClickListener { presenter.clickFalseButton() }

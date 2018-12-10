@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import QuestionContract
+import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import java.lang.ref.WeakReference
 
@@ -19,25 +20,8 @@ class QuestionModel(
 ) : QuestionContract.Model {
 
 
-    /*
     override fun fetchQuestionData() : QuestionData {
-        // Log.d(TAG, "fetchQuestionData()")
-
-        var falseLabel =
-            activity?.get()?.resources?.getString(R.string.false_label)
-        var trueLabel =
-            activity?.get()?.resources?.getString(R.string.true_label)
-        var nextLabel =
-            activity?.get()?.resources?.getString(R.string.next_label)
-        var cheatLabel =
-            activity?.get()?.resources?.getString(R.string.cheat_label)
-
-        return QuestionData(trueLabel, falseLabel, cheatLabel, nextLabel)
-    }
-    */
-
-    override fun fetchQuestionData() : QuestionData {
-        // Log.d(TAG, "fetchQuestionData()")
+        Log.d(TAG, "fetchQuestionData()")
 
         activity?.get()?.resources?.let {
             var falseLabel = it.getString(R.string.false_label)
@@ -59,7 +43,7 @@ class QuestionModel(
     }
 
     override fun fetchAnswerData() : AnswerData {
-        // Log.d(TAG, "fetchAnswerData()")
+        Log.d(TAG, "fetchAnswerData()")
 
         activity?.get()?.resources?.let {
             var correctLabel = it.getString(R.string.correct_label)
@@ -77,17 +61,6 @@ class QuestionModel(
 
     }
 
-    /*
-    override fun fetchAnswerData() : AnswerData {
-
-        var correctLabel =
-            activity?.get()?.resources?.getString(R.string.correct_label)
-        var incorrectLabel =
-            activity?.get()?.resources?.getString(R.string.incorrect_label)
-
-        return AnswerData(correctLabel, incorrectLabel)
-    }
-    */
 
     override fun getCurrentAnswer(index: Int): Boolean? {
         activity?.get()?.resources?.let {
@@ -99,13 +72,6 @@ class QuestionModel(
             val answers = it.getStringArray(R.array.answers)
             return answers.get(index)?.toBoolean()
         }
-
-        /*
-        val answers =
-            activity?.get()?.resources?.getStringArray(R.array.answers)
-
-        return answers?.get(index)?.toBoolean()
-        */
     }
 
     override fun getCurrentQuestion(index: Int): String? {
@@ -118,13 +84,6 @@ class QuestionModel(
             val questions = it.getStringArray(R.array.questions)
             return questions.get(index)
         }
-
-        /*
-        val questions =
-            activity?.get()?.resources?.getStringArray(R.array.questions)
-
-        return questions?.get(index)
-        */
     }
 
     companion object {
