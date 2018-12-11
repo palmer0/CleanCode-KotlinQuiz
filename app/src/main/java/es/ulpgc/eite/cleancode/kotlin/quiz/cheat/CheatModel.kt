@@ -2,6 +2,8 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
 import CheatContract
 import android.content.res.Resources
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import java.lang.ref.WeakReference
@@ -13,8 +15,10 @@ data class CheatData(
 )
 
 class CheatModel(
-    var activity: WeakReference<CheatActivity>? = null,
-    var fragment: WeakReference<CheatFragment>? = null
+    //var activity: WeakReference<CheatActivity>? = null,
+    //var fragment: WeakReference<CheatFragment>? = null
+    var fragment: WeakReference<Fragment>? = null,
+    var activity: WeakReference<FragmentActivity>? = null
 ) : CheatContract.Model {
 
 

@@ -9,7 +9,8 @@ class QuestionPresenter : QuestionContract.Presenter {
     var view: WeakReference<QuestionContract.View>? = null
     lateinit var viewModel: QuestionViewModel
     lateinit var model: QuestionContract.Model
-    lateinit var router: QuestionRouter
+    //lateinit var router: QuestionRouter
+    lateinit var router: QuestionContract.Router
 
     override fun fetchQuestionData() {
         Log.d(TAG, "fetchQuestionData()")

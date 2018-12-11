@@ -13,7 +13,7 @@ import es.ulpgc.eite.cleancode.kotlin.quiz.R
 
 class CheatFragment : Fragment(), CheatContract.View {
 
-    lateinit var presenter: CheatContract.Presenter
+    override lateinit var presenter: CheatContract.Presenter
 
 
     lateinit var yesButton: Button
@@ -41,7 +41,7 @@ class CheatFragment : Fragment(), CheatContract.View {
         noButton.setOnClickListener { presenter.clickNoButton() }
 
         // Do the setup
-        CheatConfigurator.configureFragment(this)
+        CheatScreen.configureFragment(this)
 
         // Do some work
         fetchData()

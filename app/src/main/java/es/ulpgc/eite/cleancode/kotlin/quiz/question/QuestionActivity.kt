@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_question.*
 
 class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
 
-    lateinit var presenter: QuestionContract.Presenter
+    override lateinit var presenter: QuestionContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +30,7 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
         nextButton.setOnClickListener { presenter.clickNextButton() }
 
         // Do the setup
-        QuestionConfigurator.configureActivity(this)
+        QuestionScreen.configureActivity(this)
 
     }
 

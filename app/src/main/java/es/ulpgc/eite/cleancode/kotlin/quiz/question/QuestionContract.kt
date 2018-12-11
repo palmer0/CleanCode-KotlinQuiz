@@ -5,6 +5,7 @@ import es.ulpgc.eite.cleancode.kotlin.quiz.question.QuestionViewModel
 interface QuestionContract {
 
     interface View {
+        var presenter: QuestionContract.Presenter
         fun displayQuestionData(viewModel: QuestionViewModel)
     }
 
@@ -22,5 +23,11 @@ interface QuestionContract {
         fun getCurrentAnswer(index: Int): Boolean?
         fun fetchAnswerData() : AnswerData
         fun getCurrentQuestion(index: Int): String?
+    }
+
+    interface Router {
+        fun getDataFromCheatScreen(): Boolean?
+        fun navigateToCheatScreen()
+        fun passDataToCheatScreen(answer: Boolean?)
     }
 }

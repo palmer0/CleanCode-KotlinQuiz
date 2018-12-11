@@ -9,7 +9,7 @@ import kotlinx.android.synthetic.main.activity_cheat.*
 
 class CheatActivity : AppCompatActivity(), CheatContract.View {
 
-    lateinit var presenter: CheatContract.Presenter
+    override lateinit var presenter: CheatContract.Presenter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +29,7 @@ class CheatActivity : AppCompatActivity(), CheatContract.View {
         noButton.setOnClickListener { presenter.clickNoButton() }
 
         // Do the setup
-        CheatConfigurator.configureActivity(this)
+        CheatScreen.configureActivity(this)
 
         // Do some work
         fetchData()

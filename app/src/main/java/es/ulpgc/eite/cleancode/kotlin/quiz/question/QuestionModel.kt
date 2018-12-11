@@ -2,6 +2,8 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import QuestionContract
 import android.content.res.Resources
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
 import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import java.lang.ref.WeakReference
@@ -16,8 +18,10 @@ data class AnswerData(
 )
 
 class QuestionModel(
-    var activity: WeakReference<QuestionActivity>? = null,
-    var fragment: WeakReference<QuestionFragment>? = null
+    //var activity: WeakReference<QuestionActivity>? = null,
+    //var fragment: WeakReference<QuestionFragment>? = null
+    var fragment: WeakReference<Fragment>? = null,
+    var activity: WeakReference<FragmentActivity>? = null
 ) : QuestionContract.Model {
 
 

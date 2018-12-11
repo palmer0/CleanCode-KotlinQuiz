@@ -13,7 +13,7 @@ import es.ulpgc.eite.cleancode.kotlin.quiz.R
 
 class QuestionFragment : Fragment(), QuestionContract.View {
 
-    lateinit var presenter: QuestionContract.Presenter
+    override lateinit var presenter: QuestionContract.Presenter
 
     lateinit var trueButton: Button
     lateinit var falseButton: Button
@@ -47,7 +47,7 @@ class QuestionFragment : Fragment(), QuestionContract.View {
         nextButton.setOnClickListener { presenter.clickNextButton() }
 
         // Do the setup
-        QuestionConfigurator.configureFragment(this)
+        QuestionScreen.configureFragment(this)
 
         return rootView
     }

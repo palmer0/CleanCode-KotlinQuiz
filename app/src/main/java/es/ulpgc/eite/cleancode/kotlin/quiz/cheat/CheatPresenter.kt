@@ -9,7 +9,7 @@ class CheatPresenter : CheatContract.Presenter {
     var view: WeakReference<CheatContract.View>? = null
     lateinit var viewModel: CheatViewModel
     lateinit var model: CheatContract.Model
-    lateinit var router: CheatRouter
+    lateinit var router: CheatContract.Router
 
     override fun fetchCheatData() {
         Log.d(TAG, "fetchCheatData()")
