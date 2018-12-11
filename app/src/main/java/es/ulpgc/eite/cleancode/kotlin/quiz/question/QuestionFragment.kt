@@ -49,9 +49,6 @@ class QuestionFragment : Fragment(), QuestionContract.View {
         // Do the setup
         QuestionConfigurator.configureFragment(this)
 
-        // Do some work
-        fetchData()
-
         return rootView
     }
 
