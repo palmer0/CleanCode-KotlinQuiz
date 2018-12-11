@@ -7,7 +7,7 @@ import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import kotlinx.android.synthetic.main.activity_question.*
 
-class QuestionActivity : AppCompatActivity(), QuestionContract.View {
+class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
 
     lateinit var presenter: QuestionContract.Presenter
 
