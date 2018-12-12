@@ -10,17 +10,20 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
+import kotlinx.android.synthetic.main.fragment_cheat.view.*
 
 class CheatFragment : Fragment(), CheatContract.View {
 
     override lateinit var presenter: CheatContract.Presenter
 
+    lateinit var rootView: View
 
+    /*
     lateinit var yesButton: Button
     lateinit var noButton: Button
     lateinit var questionText: TextView
     lateinit var answerText: TextView
-
+    */
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -28,17 +31,21 @@ class CheatFragment : Fragment(), CheatContract.View {
     ): View? {
 
         // Inflate the layout for this fragment
-        val rootView = inflater.inflate(
+        rootView = inflater.inflate(
             R.layout.fragment_cheat, container, false
         )
 
+        /*
         yesButton = rootView.findViewById(R.id.yesButton)
         noButton = rootView.findViewById(R.id.noButton)
         questionText = rootView.findViewById(R.id.questionText)
         answerText = rootView.findViewById(R.id.answerText)
+        */
 
-        yesButton.setOnClickListener { presenter.clickYesButton() }
-        noButton.setOnClickListener { presenter.clickNoButton() }
+        with(rootView) {
+            yesButton.setOnClickListener { presenter.clickYesButton() }
+            noButton.setOnClickListener { presenter.clickNoButton() }
+        }
 
         // Do the setup
         CheatScreen.configureFragment(this)
@@ -60,14 +67,16 @@ class CheatFragment : Fragment(), CheatContract.View {
         Log.d(TAG, "displayCheatData()")
 
         // Deal with the data, update the states, ui etc..
-        questionText.text = viewModel.questionText
-        answerText.text = viewModel.answerText
+        with(rootView) {
+            questionText.text = viewModel.questionText
+            answerText.text = viewModel.answerText
 
-        yesButton.text = viewModel.yesLabel
-        noButton.text = viewModel.noLabel
+            yesButton.text = viewModel.yesLabel
+            noButton.text = viewModel.noLabel
 
-        yesButton.isEnabled = viewModel.yesEnabled
-        noButton.isEnabled = viewModel.noEnabled
+            yesButton.isEnabled = viewModel.yesEnabled
+            noButton.isEnabled = viewModel.noEnabled
+        }
     }
 
     companion object {
