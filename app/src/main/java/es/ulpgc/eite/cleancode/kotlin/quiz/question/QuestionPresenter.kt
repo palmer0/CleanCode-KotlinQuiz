@@ -1,101 +1,100 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
-import QuestionContract
 import android.util.Log
 import java.lang.ref.WeakReference
 
 class QuestionPresenter : QuestionContract.Presenter {
 
-    var view: WeakReference<QuestionContract.View>? = null
-    lateinit var viewModel: QuestionViewModel
-    lateinit var model: QuestionContract.Model
-    //lateinit var router: QuestionRouter
-    lateinit var router: QuestionContract.Router
+  var view: WeakReference<QuestionContract.View>? = null
+  lateinit var viewModel: QuestionViewModel
+  lateinit var model: QuestionContract.Model
+  //lateinit var router: QuestionRouter
+  lateinit var router: QuestionContract.Router
 
-    override fun fetchQuestionData() {
-        Log.d(TAG, "fetchQuestionData()")
+  override fun fetchQuestionData() {
+    Log.d(TAG, "fetchQuestionData()")
 
-        val cheated = router.getDataFromCheatScreen()
+    val cheated = router.getDataFromCheatScreen()
 
-        cheated?.let {
-            Log.d(TAG, "cheated: $it")
+    cheated?.let {
+      Log.d(TAG, "cheated: $it")
 
-            if(it) {
-                clickNextButton()
-                return
-            }
-        }
-
-        // Call the model
-        val data = model.fetchQuestionData()
-        viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
-
-        viewModel.trueLabel = data.trueLabel
-        viewModel.falseLabel = data.falseLabel
-        viewModel.cheatLabel = data.cheatLabel
-        viewModel.nextLabel = data.nextLabel
-
-        // Call the view
-        view?.get()?.displayQuestionData(viewModel)
+      if (it) {
+        clickNextButton()
+        return
+      }
     }
 
+    // Call the model
+    val data = model.fetchQuestionData()
+    viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
 
-    private fun fetchAnswerData(userAnswer: Boolean) {
-        Log.d(TAG, "fetchAnswerData()")
+    viewModel.trueLabel = data.trueLabel
+    viewModel.falseLabel = data.falseLabel
+    viewModel.cheatLabel = data.cheatLabel
+    viewModel.nextLabel = data.nextLabel
 
-        // Call the model
-        val answer = model.getCurrentAnswer(viewModel.quizIndex)
-        val data = model.fetchAnswerData()
+    // Call the view
+    view?.get()?.displayQuestionData(viewModel)
+  }
 
-        if (answer == userAnswer) {
-            viewModel.answerText = data.correctLabel
-        } else {
-            viewModel.answerText = data.incorrectLabel
-        }
 
-        viewModel.trueEnabled = false
-        viewModel.falseEnabled = false
-        viewModel.cheatEnabled = false
-        viewModel.nextEnabled = true
+  private fun fetchAnswerData(userAnswer: Boolean) {
+    Log.d(TAG, "fetchAnswerData()")
 
-        // Call the view
-        view?.get()?.displayQuestionData(viewModel)
+    // Call the model
+    val answer = model.getCurrentAnswer(viewModel.quizIndex)
+    val data = model.fetchAnswerData()
+
+    if (answer == userAnswer) {
+      viewModel.answerText = data.correctLabel
+    } else {
+      viewModel.answerText = data.incorrectLabel
     }
 
-    override fun clickNextButton() {
-        Log.d(TAG, "clickNextButton()")
+    viewModel.trueEnabled = false
+    viewModel.falseEnabled = false
+    viewModel.cheatEnabled = false
+    viewModel.nextEnabled = true
 
-        viewModel.quizIndex++
+    // Call the view
+    view?.get()?.displayQuestionData(viewModel)
+  }
 
-        viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
-        viewModel.answerText = ""
+  override fun clickNextButton() {
+    Log.d(TAG, "clickNextButton()")
 
-        viewModel.trueEnabled = true
-        viewModel.falseEnabled = true
-        viewModel.cheatEnabled = true
-        viewModel.nextEnabled = false
+    viewModel.quizIndex++
 
-        // Call the view
-        view?.get()?.displayQuestionData(viewModel)
-    }
+    viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
+    viewModel.answerText = ""
 
-    override fun clickCheatButton() {
-        val answer = model.getCurrentAnswer(viewModel.quizIndex)
+    viewModel.trueEnabled = true
+    viewModel.falseEnabled = true
+    viewModel.cheatEnabled = true
+    viewModel.nextEnabled = false
 
-        router.passDataToCheatScreen(answer)
-        router.navigateToCheatScreen()
-    }
+    // Call the view
+    view?.get()?.displayQuestionData(viewModel)
+  }
 
-    override fun clickFalseButton() {
-        fetchAnswerData(false)
-    }
+  override fun clickCheatButton() {
+    val answer = model.getCurrentAnswer(viewModel.quizIndex)
 
-    override fun clickTrueButton() {
-        fetchAnswerData(true)
-    }
+    router.passDataToCheatScreen(answer)
+    router.navigateToCheatScreen()
+  }
+
+  override fun clickFalseButton() {
+    fetchAnswerData(false)
+  }
+
+  override fun clickTrueButton() {
+    fetchAnswerData(true)
+  }
 
 
-    companion object {
-        const val TAG = "QuestionPresenter"
-    }
+  companion object {
+    const val TAG = "QuestionPresenter"
+  }
 }

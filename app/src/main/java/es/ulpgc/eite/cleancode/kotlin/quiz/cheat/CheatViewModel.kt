@@ -4,14 +4,14 @@ import android.arch.lifecycle.ViewModel
 
 class CheatViewModel : ViewModel() {
 
-    var questionText: String? = null
-    var answerText: String? = null
+  var questionText: String? = null
+  var answerText: String? = null
 
-    var yesLabel: String? = null
-    var noLabel: String? = null
+  var yesLabel: String? = null
+  var noLabel: String? = null
 
-    var yesEnabled = true
-    var noEnabled = true
+  var yesEnabled = true
+  var noEnabled = true
 
 }
 

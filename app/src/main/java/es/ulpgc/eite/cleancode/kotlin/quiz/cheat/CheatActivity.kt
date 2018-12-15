@@ -1,6 +1,5 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
-import CheatContract
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
@@ -9,54 +8,54 @@ import kotlinx.android.synthetic.main.activity_cheat.*
 
 class CheatActivity : AppCompatActivity(), CheatContract.View {
 
-    override lateinit var presenter: CheatContract.Presenter
+  override lateinit var presenter: CheatContract.Presenter
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        //setContentView(R.layout.activity_cheat)
+  override fun onCreate(savedInstanceState: Bundle?) {
+    super.onCreate(savedInstanceState)
+    //setContentView(R.layout.activity_cheat)
 
-        setContentView(R.layout.activity_cheat_fragment)
+    setContentView(R.layout.activity_cheat_fragment)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .replace(R.id.container, CheatFragment())
-                .commitNow()
-        }
-
-        return
-
-        yesButton.setOnClickListener { presenter.clickYesButton() }
-        noButton.setOnClickListener { presenter.clickNoButton() }
-
-        // Do the setup
-        CheatScreen.configureActivity(this)
-
-        // Do some work
-        fetchData()
+    if (savedInstanceState == null) {
+      supportFragmentManager.beginTransaction()
+        .replace(R.id.container, CheatFragment())
+        .commitNow()
     }
 
-    fun fetchData() {
+    return
 
-        // Call the presenter to fetch the data
-        presenter.fetchCheatData()
-    }
+    yesButton.setOnClickListener { presenter.clickYesButton() }
+    noButton.setOnClickListener { presenter.clickNoButton() }
 
-    override fun displayCheatData(viewModel: CheatViewModel) {
-        Log.d(TAG, "displayCheatData()")
+    // Do the setup
+    CheatScreen.configureActivity(this)
 
-        // Deal with the data, update the states, ui etc..
-        questionText.text = viewModel.questionText
-        answerText.text = viewModel.answerText
+    // Do some work
+    fetchData()
+  }
 
-        yesButton.text = viewModel.yesLabel
-        noButton.text = viewModel.noLabel
+  fun fetchData() {
 
-        yesButton.isEnabled = viewModel.yesEnabled
-        noButton.isEnabled = viewModel.noEnabled
-    }
+    // Call the presenter to fetch the data
+    presenter.fetchCheatData()
+  }
+
+  override fun displayCheatData(viewModel: CheatViewModel) {
+    Log.d(TAG, "displayCheatData()")
+
+    // Deal with the data, update the states, ui etc..
+    questionText.text = viewModel.questionText
+    answerText.text = viewModel.answerText
+
+    yesButton.text = viewModel.yesLabel
+    noButton.text = viewModel.noLabel
+
+    yesButton.isEnabled = viewModel.yesEnabled
+    noButton.isEnabled = viewModel.noEnabled
+  }
 
 
-    companion object {
-        const val TAG = "CheatActivity"
-    }
+  companion object {
+    const val TAG = "CheatActivity"
+  }
 }

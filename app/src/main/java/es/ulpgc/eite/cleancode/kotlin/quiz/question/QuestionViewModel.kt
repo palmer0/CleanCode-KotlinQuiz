@@ -4,19 +4,19 @@ import android.arch.lifecycle.ViewModel
 
 class QuestionViewModel : ViewModel() {
 
-    var quizIndex = 0
+  var quizIndex = 0
 
-    var questionText: String? = null
-    var answerText: String? = null
+  var questionText: String? = null
+  var answerText: String? = null
 
-    var trueLabel: String? = null
-    var falseLabel: String? = null
-    var cheatLabel: String? = null
-    var nextLabel: String? = null
+  var trueLabel: String? = null
+  var falseLabel: String? = null
+  var cheatLabel: String? = null
+  var nextLabel: String? = null
 
-    var trueEnabled = true
-    var falseEnabled = true
-    var cheatEnabled = true
-    var nextEnabled = false
+  var trueEnabled = true
+  var falseEnabled = true
+  var cheatEnabled = true
+  var nextEnabled = false
 }
 
