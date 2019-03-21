@@ -28,12 +28,16 @@ class QuestionPresenter : QuestionContract.Presenter {
     val data = model.fetchQuestionData()
 
     data?.let {
-      viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
 
-      viewModel.trueLabel = it.trueLabel
-      viewModel.falseLabel = it.falseLabel
-      viewModel.cheatLabel = it.cheatLabel
-      viewModel.nextLabel = it.nextLabel
+      with(viewModel) {
+
+        questionText = model.getCurrentQuestion(viewModel.quizIndex)
+
+        trueLabel = it.trueLabel
+        falseLabel = it.falseLabel
+        cheatLabel = it.cheatLabel
+        nextLabel = it.nextLabel
+      }
 
       // Call the view
       view?.get()?.displayQuestionData(viewModel)
@@ -49,16 +53,20 @@ class QuestionPresenter : QuestionContract.Presenter {
     val data = model.fetchAnswerData()
 
     data?.let {
-      if (answer == userAnswer) {
-        viewModel.answerText = it.correctLabel
-      } else {
-        viewModel.answerText = it.incorrectLabel
-      }
 
-      viewModel.trueEnabled = false
-      viewModel.falseEnabled = false
-      viewModel.cheatEnabled = false
-      viewModel.nextEnabled = true
+      with(viewModel) {
+
+        if (answer == userAnswer) {
+          answerText = it.correctLabel
+        } else {
+          answerText = it.incorrectLabel
+        }
+
+        trueEnabled = false
+        falseEnabled = false
+        cheatEnabled = false
+        nextEnabled = true
+      }
 
       // Call the view
       view?.get()?.displayQuestionData(viewModel)
@@ -69,15 +77,18 @@ class QuestionPresenter : QuestionContract.Presenter {
   override fun clickNextButton() {
     Log.d(TAG, "clickNextButton()")
 
-    viewModel.quizIndex++
+    with(viewModel) {
 
-    viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
-    viewModel.answerText = ""
+      quizIndex++
 
-    viewModel.trueEnabled = true
-    viewModel.falseEnabled = true
-    viewModel.cheatEnabled = true
-    viewModel.nextEnabled = false
+      questionText = model.getCurrentQuestion(viewModel.quizIndex)
+      answerText = ""
+
+      trueEnabled = true
+      falseEnabled = true
+      cheatEnabled = true
+      nextEnabled = false
+    }
 
     // Call the view
     view?.get()?.displayQuestionData(viewModel)

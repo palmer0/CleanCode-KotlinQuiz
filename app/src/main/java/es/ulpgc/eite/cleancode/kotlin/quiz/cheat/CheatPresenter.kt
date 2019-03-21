@@ -16,9 +16,12 @@ class CheatPresenter : CheatContract.Presenter {
     val data = model.fetchCheatData()
 
     data?.let {
-      viewModel.questionText = it.questionText
-      viewModel.yesLabel = it.yesLabel
-      viewModel.noLabel = it.noLabel
+
+      with(viewModel) {
+        questionText = it.questionText
+        yesLabel = it.yesLabel
+        noLabel = it.noLabel
+      }
 
       // Call the view
       view?.get()?.displayCheatData(viewModel)
@@ -46,14 +49,18 @@ class CheatPresenter : CheatContract.Presenter {
     val data = model.fetchCheatData()
 
     data?.let {
-      if (answer) {
-        viewModel.answerText = it.trueLabel
-      } else {
-        viewModel.answerText = it.falseLabel
-      }
 
-      viewModel.yesEnabled = false
-      viewModel.noEnabled = false
+      with(viewModel) {
+
+        if (answer) {
+          answerText = it.trueLabel
+        } else {
+          answerText = it.falseLabel
+        }
+
+        yesEnabled = false
+        noEnabled = false
+      }
 
       // Call the view
       view?.get()?.displayCheatData(viewModel)
