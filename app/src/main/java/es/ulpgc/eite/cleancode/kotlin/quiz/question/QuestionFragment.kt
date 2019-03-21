@@ -15,14 +15,6 @@ class QuestionFragment : Fragment(), QuestionContract.View {
 
   lateinit var rootView: View
 
-  /*
-  lateinit var trueButton: Button
-  lateinit var falseButton: Button
-  lateinit var cheatButton: Button
-  lateinit var nextButton: Button
-  lateinit var questionText: TextView
-  lateinit var answerText: TextView
-  */
 
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
@@ -33,15 +25,6 @@ class QuestionFragment : Fragment(), QuestionContract.View {
     rootView = inflater.inflate(
       R.layout.fragment_question, container, false
     )
-
-    /*
-    trueButton = rootView.findViewById(R.id.trueButton)
-    falseButton = rootView.findViewById(R.id.falseButton)
-    cheatButton = rootView.findViewById(R.id.cheatButton)
-    nextButton = rootView.findViewById(R.id.nextButton)
-    questionText = rootView.findViewById(R.id.questionText)
-    answerText = rootView.findViewById(R.id.answerText)
-    */
 
     with(rootView) {
       trueButton.setOnClickListener { presenter.clickTrueButton() }
@@ -90,20 +73,6 @@ class QuestionFragment : Fragment(), QuestionContract.View {
       nextButton.isEnabled = viewModel.nextEnabled
     }
 
-    /*
-    questionText.text = viewModel.questionText
-    answerText.text = viewModel.answerText
-
-    trueButton.text = viewModel.trueLabel
-    falseButton.text = viewModel.falseLabel
-    cheatButton.text = viewModel.cheatLabel
-    nextButton.text = viewModel.nextLabel
-
-    trueButton.isEnabled = viewModel.trueEnabled
-    falseButton.isEnabled = viewModel.falseEnabled
-    cheatButton.isEnabled = viewModel.cheatEnabled
-    nextButton.isEnabled = viewModel.nextEnabled
-    */
   }
 
   companion object {

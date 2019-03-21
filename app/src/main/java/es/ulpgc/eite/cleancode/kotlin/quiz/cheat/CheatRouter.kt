@@ -7,8 +7,6 @@ import java.lang.ref.WeakReference
 
 class CheatRouter : CheatContract.Router {
 
-  //var fragment: WeakReference<CheatFragment>? = null
-  //var activity: WeakReference<CheatActivity>? = null
   var fragment: WeakReference<Fragment>? = null
   var activity: WeakReference<FragmentActivity>? = null
 
@@ -45,6 +43,7 @@ class CheatRouter : CheatContract.Router {
     fragment?.get()?.activity?.let {
       return _getDataFromQuestionScreen(it.application as AppMediator)
     }
+
   }
 
 

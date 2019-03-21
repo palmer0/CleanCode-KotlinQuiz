@@ -14,8 +14,6 @@ data class CheatData(
 )
 
 class CheatModel(
-  //var activity: WeakReference<CheatActivity>? = null,
-  //var fragment: WeakReference<CheatFragment>? = null
   var fragment: WeakReference<Fragment>? = null,
   var activity: WeakReference<FragmentActivity>? = null
 ) : CheatContract.Model {
@@ -31,6 +29,7 @@ class CheatModel(
     fragment?.get()?.resources?.let {
       return _fetchCheatData(it)
     }
+
   }
 
   private fun _fetchCheatData(resources: Resources): CheatData {

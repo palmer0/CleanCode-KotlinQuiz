@@ -19,8 +19,6 @@ interface CheatContract {
   }
 
   interface Router {
-    //fun passDataToNextScreen(text: String?)
-    //fun navigateToNextScreen()
     fun passDataToQuestionScreen(cheated: Boolean?)
 
     fun getDataFromQuestionScreen(): Boolean?

@@ -15,13 +15,6 @@ class CheatFragment : Fragment(), CheatContract.View {
 
   lateinit var rootView: View
 
-  /*
-  lateinit var yesButton: Button
-  lateinit var noButton: Button
-  lateinit var questionText: TextView
-  lateinit var answerText: TextView
-  */
-
   override fun onCreateView(
     inflater: LayoutInflater, container: ViewGroup?,
     savedInstanceState: Bundle?
@@ -31,13 +24,6 @@ class CheatFragment : Fragment(), CheatContract.View {
     rootView = inflater.inflate(
       R.layout.fragment_cheat, container, false
     )
-
-    /*
-    yesButton = rootView.findViewById(R.id.yesButton)
-    noButton = rootView.findViewById(R.id.noButton)
-    questionText = rootView.findViewById(R.id.questionText)
-    answerText = rootView.findViewById(R.id.answerText)
-    */
 
     with(rootView) {
       yesButton.setOnClickListener { presenter.clickYesButton() }
