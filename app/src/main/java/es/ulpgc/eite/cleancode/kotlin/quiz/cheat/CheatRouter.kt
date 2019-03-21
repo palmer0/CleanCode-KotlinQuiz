@@ -1,13 +1,12 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import es.ulpgc.eite.cleancode.kotlin.quiz.app.AppMediator
 import java.lang.ref.WeakReference
 
 class CheatRouter : CheatContract.Router {
 
-  var fragment: WeakReference<Fragment>? = null
+  //var fragment: WeakReference<Fragment>? = null
   var activity: WeakReference<FragmentActivity>? = null
 
   private fun _passDataToQuestionScreen(
@@ -23,9 +22,11 @@ class CheatRouter : CheatContract.Router {
       _passDataToQuestionScreen(it.application as AppMediator, cheated)
     }
 
+    /*
     fragment?.get()?.activity?.let {
       _passDataToQuestionScreen(it.application as AppMediator, cheated)
     }
+    */
   }
 
   private fun _getDataFromQuestionScreen(mediator: AppMediator): Boolean? {
@@ -40,10 +41,13 @@ class CheatRouter : CheatContract.Router {
       return _getDataFromQuestionScreen(it.application as AppMediator)
     }
 
+    /*
     fragment?.get()?.activity?.let {
       return _getDataFromQuestionScreen(it.application as AppMediator)
     }
+    */
 
+    return null
   }
 
 
@@ -52,12 +56,15 @@ class CheatRouter : CheatContract.Router {
       it.finish()
     }
 
+    /*
     fragment?.get()?.activity?.let {
       it.finish()
     }
+    */
   }
 
 
+  /*
   fun passDataToNextScreen(text: String?) {
     //val mediator = activity?.get()?.application as AppMediator
     //mediator.text = text
@@ -86,6 +93,7 @@ class CheatRouter : CheatContract.Router {
     // fragment?.get()?.activityListener?.startNextFragment(nextFragment)
 
   }
+  */
 
   companion object {
     const val TAG = "CheatRouter"

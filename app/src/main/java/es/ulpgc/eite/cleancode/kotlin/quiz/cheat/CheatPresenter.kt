@@ -15,12 +15,16 @@ class CheatPresenter : CheatContract.Presenter {
 
     val data = model.fetchCheatData()
 
-    viewModel.questionText = data.questionText
-    viewModel.yesLabel = data.yesLabel
-    viewModel.noLabel = data.noLabel
+    data?.let {
+      viewModel.questionText = it.questionText
+      viewModel.yesLabel = it.yesLabel
+      viewModel.noLabel = it.noLabel
 
-    // Call the view
-    view?.get()?.displayCheatData(viewModel)
+      // Call the view
+      view?.get()?.displayCheatData(viewModel)
+    }
+
+
   }
 
   override fun clickYesButton() {
@@ -30,8 +34,8 @@ class CheatPresenter : CheatContract.Presenter {
 
     answer?.let {
 
-      Log.d(TAG, "answer: $answer")
-      updateCheatData(answer)
+      Log.d(TAG, "answer: $it")
+      updateCheatData(it)
 
       router.passDataToQuestionScreen(true)
     }
@@ -41,17 +45,19 @@ class CheatPresenter : CheatContract.Presenter {
   private fun updateCheatData(answer: Boolean) {
     val data = model.fetchCheatData()
 
-    if (answer) {
-      viewModel.answerText = data.trueLabel
-    } else {
-      viewModel.answerText = data.falseLabel
+    data?.let {
+      if (answer) {
+        viewModel.answerText = it.trueLabel
+      } else {
+        viewModel.answerText = it.falseLabel
+      }
+
+      viewModel.yesEnabled = false
+      viewModel.noEnabled = false
+
+      // Call the view
+      view?.get()?.displayCheatData(viewModel)
     }
-
-    viewModel.yesEnabled = false
-    viewModel.noEnabled = false
-
-    // Call the view
-    view?.get()?.displayCheatData(viewModel)
   }
 
 

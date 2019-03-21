@@ -15,7 +15,7 @@ interface CheatContract {
   }
 
   interface Model {
-    fun fetchCheatData(): CheatData
+    fun fetchCheatData(): CheatData?
   }
 
   interface Router {

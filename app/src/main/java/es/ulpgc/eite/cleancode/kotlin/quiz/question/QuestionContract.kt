@@ -18,9 +18,9 @@ interface QuestionContract {
 
   interface Model {
 
-    fun fetchQuestionData(): QuestionData
+    fun fetchQuestionData(): QuestionData?
     fun getCurrentAnswer(index: Int): Boolean?
-    fun fetchAnswerData(): AnswerData
+    fun fetchAnswerData(): AnswerData?
     fun getCurrentQuestion(index: Int): String?
   }
 

@@ -1,7 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.content.res.Resources
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
@@ -17,36 +16,41 @@ data class AnswerData(
 )
 
 class QuestionModel(
-  //var activity: WeakReference<QuestionActivity>? = null,
-  //var fragment: WeakReference<QuestionFragment>? = null
-  var fragment: WeakReference<Fragment>? = null,
+  //var fragment: WeakReference<Fragment>? = null,
   var activity: WeakReference<FragmentActivity>? = null
 ) : QuestionContract.Model {
 
 
-  override fun fetchQuestionData(): QuestionData {
+  override fun fetchQuestionData(): QuestionData? {
     Log.d(TAG, "fetchQuestionData()")
 
     activity?.get()?.resources?.let {
       return _fetchQuestionData(it)
     }
 
+    /*
     fragment?.get()?.resources?.let {
       return _fetchQuestionData(it)
     }
+    */
+
+    return null
   }
 
-  override fun fetchAnswerData(): AnswerData {
+  override fun fetchAnswerData(): AnswerData? {
     Log.d(TAG, "fetchAnswerData()")
 
     activity?.get()?.resources?.let {
       return _fetchAnswerData(it)
     }
 
+    /*
     fragment?.get()?.resources?.let {
       return _fetchAnswerData(it)
     }
+    */
 
+    return null
   }
 
   private fun _fetchQuestionData(resources: Resources): QuestionData {
@@ -71,9 +75,13 @@ class QuestionModel(
       return _getCurrentAnswer(it, index)
     }
 
+    /*
     fragment?.get()?.resources?.let {
       return _getCurrentAnswer(it, index)
     }
+    */
+
+    return null
   }
 
 
@@ -82,9 +90,13 @@ class QuestionModel(
       return _getCurrentQuestion(it, index)
     }
 
+    /*
     fragment?.get()?.resources?.let {
       return _getCurrentQuestion(it, index)
     }
+    */
+
+    return null
   }
 
   private fun _getCurrentQuestion(resources: Resources, index: Int): String? {

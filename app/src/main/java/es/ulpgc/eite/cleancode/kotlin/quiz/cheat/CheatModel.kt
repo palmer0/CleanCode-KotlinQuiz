@@ -1,7 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
 import android.content.res.Resources
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.util.Log
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
@@ -14,22 +13,25 @@ data class CheatData(
 )
 
 class CheatModel(
-  var fragment: WeakReference<Fragment>? = null,
+  //var fragment: WeakReference<Fragment>? = null,
   var activity: WeakReference<FragmentActivity>? = null
 ) : CheatContract.Model {
 
 
-  override fun fetchCheatData(): CheatData {
+  override fun fetchCheatData(): CheatData? {
     Log.d(TAG, "fetchCheatData()")
 
     activity?.get()?.resources?.let {
       return _fetchCheatData(it)
     }
 
+    /*
     fragment?.get()?.resources?.let {
       return _fetchCheatData(it)
     }
+    */
 
+    return null
   }
 
   private fun _fetchCheatData(resources: Resources): CheatData {

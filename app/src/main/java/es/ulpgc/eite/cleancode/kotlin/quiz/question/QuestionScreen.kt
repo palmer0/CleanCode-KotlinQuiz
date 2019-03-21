@@ -1,7 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import java.lang.ref.WeakReference
 
@@ -32,6 +31,7 @@ object QuestionScreen {
 
   fun configureFragment(view: QuestionContract.View) {
 
+    /*
     val fragment = view as Fragment
 
     val router = QuestionRouter()
@@ -49,7 +49,9 @@ object QuestionScreen {
     presenter.model = model
 
     view.presenter = presenter
+    */
 
   }
+
 
 }

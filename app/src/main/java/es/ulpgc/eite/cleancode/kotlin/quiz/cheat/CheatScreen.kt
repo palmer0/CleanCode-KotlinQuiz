@@ -1,7 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
 import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import java.lang.ref.WeakReference
 
@@ -28,9 +27,9 @@ object CheatScreen {
 
   }
 
-
   fun configureFragment(view: CheatContract.View) {
 
+    /*
     val fragment = view as Fragment
 
     val router = CheatRouter()
@@ -48,9 +47,8 @@ object CheatScreen {
     presenter.model = model
 
     view.presenter = presenter
-
+    */
   }
-
 
 
 }

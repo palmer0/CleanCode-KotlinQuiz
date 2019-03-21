@@ -26,15 +26,18 @@ class QuestionPresenter : QuestionContract.Presenter {
 
     // Call the model
     val data = model.fetchQuestionData()
-    viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
 
-    viewModel.trueLabel = data.trueLabel
-    viewModel.falseLabel = data.falseLabel
-    viewModel.cheatLabel = data.cheatLabel
-    viewModel.nextLabel = data.nextLabel
+    data?.let {
+      viewModel.questionText = model.getCurrentQuestion(viewModel.quizIndex)
 
-    // Call the view
-    view?.get()?.displayQuestionData(viewModel)
+      viewModel.trueLabel = it.trueLabel
+      viewModel.falseLabel = it.falseLabel
+      viewModel.cheatLabel = it.cheatLabel
+      viewModel.nextLabel = it.nextLabel
+
+      // Call the view
+      view?.get()?.displayQuestionData(viewModel)
+    }
   }
 
 
@@ -45,19 +48,22 @@ class QuestionPresenter : QuestionContract.Presenter {
     val answer = model.getCurrentAnswer(viewModel.quizIndex)
     val data = model.fetchAnswerData()
 
-    if (answer == userAnswer) {
-      viewModel.answerText = data.correctLabel
-    } else {
-      viewModel.answerText = data.incorrectLabel
+    data?.let {
+      if (answer == userAnswer) {
+        viewModel.answerText = it.correctLabel
+      } else {
+        viewModel.answerText = it.incorrectLabel
+      }
+
+      viewModel.trueEnabled = false
+      viewModel.falseEnabled = false
+      viewModel.cheatEnabled = false
+      viewModel.nextEnabled = true
+
+      // Call the view
+      view?.get()?.displayQuestionData(viewModel)
     }
 
-    viewModel.trueEnabled = false
-    viewModel.falseEnabled = false
-    viewModel.cheatEnabled = false
-    viewModel.nextEnabled = true
-
-    // Call the view
-    view?.get()?.displayQuestionData(viewModel)
   }
 
   override fun clickNextButton() {

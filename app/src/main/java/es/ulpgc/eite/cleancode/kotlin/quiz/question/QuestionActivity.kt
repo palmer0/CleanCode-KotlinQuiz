@@ -12,8 +12,9 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    //setContentView(R.layout.activity_question)
+    setContentView(R.layout.activity_question)
 
+    /*
     setContentView(R.layout.activity_question_fragment)
 
     if (savedInstanceState == null) {
@@ -23,7 +24,7 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
     }
 
     return
-
+    */
 
     trueButton.setOnClickListener { presenter.clickTrueButton() }
     falseButton.setOnClickListener { presenter.clickFalseButton() }
@@ -39,7 +40,7 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
   override fun onResume() {
     super.onResume()
 
-    return
+    //return
 
     // Do some work
     fetchData()
