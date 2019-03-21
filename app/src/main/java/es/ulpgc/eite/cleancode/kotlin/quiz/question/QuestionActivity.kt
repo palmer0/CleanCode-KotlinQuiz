@@ -12,7 +12,7 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
-    setContentView(R.layout.activity_question)
+    //setContentView(R.layout.activity_question)
 
     setContentView(R.layout.activity_question_fragment)
 
