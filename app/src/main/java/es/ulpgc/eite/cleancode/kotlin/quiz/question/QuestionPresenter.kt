@@ -51,7 +51,6 @@ class QuestionPresenter : QuestionContract.Presenter {
 
       // Call the view
       view?.get()?.displayQuestionData(getScreenData())
-      //view?.get()?.displayQuestionData(state)
     }
   }
 
@@ -81,7 +80,6 @@ class QuestionPresenter : QuestionContract.Presenter {
 
       // Call the view
       view?.get()?.displayQuestionData(getScreenData())
-      //view?.get()?.displayQuestionData(state)
     }
 
   }
@@ -104,7 +102,6 @@ class QuestionPresenter : QuestionContract.Presenter {
 
     // Call the view
     view?.get()?.displayQuestionData(getScreenData())
-    //view?.get()?.displayQuestionData(state)
   }
 
 

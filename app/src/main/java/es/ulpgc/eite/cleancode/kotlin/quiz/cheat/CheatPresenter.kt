@@ -32,7 +32,6 @@ class CheatPresenter : CheatContract.Presenter {
 
       // Call the view
       view?.get()?.displayCheatData(getViewModel())
-      //view?.get()?.displayCheatData(state)
     }
 
 
@@ -72,7 +71,6 @@ class CheatPresenter : CheatContract.Presenter {
 
       // Call the view
       view?.get()?.displayCheatData(getViewModel())
-      //view?.get()?.displayCheatData(state)
     }
   }
 
