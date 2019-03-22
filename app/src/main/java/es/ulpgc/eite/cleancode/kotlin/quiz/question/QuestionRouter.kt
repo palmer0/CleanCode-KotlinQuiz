@@ -11,7 +11,7 @@ class QuestionRouter : QuestionContract.Router {
   //var fragment: WeakReference<Fragment>? = null
   var activity: WeakReference<FragmentActivity>? = null
 
-  private fun _passDataToCheatScreen(
+  private fun passDataToCheatScreen(
     mediator: AppMediator,
     answer: Boolean?
   ) {
@@ -21,18 +21,18 @@ class QuestionRouter : QuestionContract.Router {
 
   override fun passDataToCheatScreen(answer: Boolean?) {
     activity?.get()?.let {
-      _passDataToCheatScreen(it.application as AppMediator, answer)
+      passDataToCheatScreen(it.application as AppMediator, answer)
     }
 
     /*
     fragment?.get()?.activity?.let {
-      _passDataToCheatScreen(it.application as AppMediator, answer)
+      passDataToCheatScreen(it.application as AppMediator, answer)
     }
     */
   }
 
 
-  private fun _getDataFromCheatScreen(mediator: AppMediator): Boolean? {
+  private fun getDataFromCheatScreen(mediator: AppMediator): Boolean? {
     val cheated = mediator.cheated
     mediator.cheated = null
     return cheated
@@ -40,12 +40,12 @@ class QuestionRouter : QuestionContract.Router {
 
   override fun getDataFromCheatScreen(): Boolean? {
     activity?.get()?.let {
-      return _getDataFromCheatScreen(it.application as AppMediator)
+      return getDataFromCheatScreen(it.application as AppMediator)
     }
 
     /*
     fragment?.get()?.activity?.let {
-      return _getDataFromCheatScreen(it.application as AppMediator)
+      return getDataFromCheatScreen(it.application as AppMediator)
     }
     */
 
@@ -53,7 +53,7 @@ class QuestionRouter : QuestionContract.Router {
   }
 
 
-  private fun _navigateToCheatScreen(mediator: AppMediator) {
+  private fun navigateToCheatScreen(mediator: AppMediator) {
     val context = mediator.baseContext
     val intent = Intent(context, CheatActivity::class.java)
     context.startActivity(intent)
@@ -61,12 +61,12 @@ class QuestionRouter : QuestionContract.Router {
 
   override fun navigateToCheatScreen() {
     activity?.get()?.let {
-      _navigateToCheatScreen(it.application as AppMediator)
+      navigateToCheatScreen(it.application as AppMediator)
     }
 
     /*
     fragment?.get()?.activity?.let {
-      _navigateToCheatScreen(it.application as AppMediator)
+      navigateToCheatScreen(it.application as AppMediator)
     }
     */
   }

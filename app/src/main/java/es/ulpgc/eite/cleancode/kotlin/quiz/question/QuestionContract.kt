@@ -6,6 +6,7 @@ interface QuestionContract {
   interface View {
     var presenter: QuestionContract.Presenter
     fun displayQuestionData(viewModel: QuestionViewModel)
+    //fun displayQuestionData(state: QuestionState)
   }
 
   interface Presenter {
@@ -20,7 +21,7 @@ interface QuestionContract {
 
     fun fetchQuestionData(): QuestionData?
     fun getCurrentAnswer(index: Int): Boolean?
-    fun fetchAnswerData(): AnswerData?
+    fun fetchResultData(): ResultData?
     fun getCurrentQuestion(index: Int): String?
   }
 

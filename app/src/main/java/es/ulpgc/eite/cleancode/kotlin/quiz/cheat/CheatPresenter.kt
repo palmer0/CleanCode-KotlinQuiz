@@ -3,10 +3,17 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 import android.util.Log
 import java.lang.ref.WeakReference
 
+data class CheatViewModel(
+  val questionText: String?, val answerText: String?,
+  val yesLabel: String?, val noLabel: String?,
+  val yesEnabled: Boolean, val noEnabled: Boolean
+)
+
+
 class CheatPresenter : CheatContract.Presenter {
 
   var view: WeakReference<CheatContract.View>? = null
-  lateinit var viewModel: CheatViewModel
+  lateinit var state: CheatState
   lateinit var model: CheatContract.Model
   lateinit var router: CheatContract.Router
 
@@ -17,14 +24,15 @@ class CheatPresenter : CheatContract.Presenter {
 
     data?.let {
 
-      with(viewModel) {
+      with(state) {
         questionText = it.questionText
         yesLabel = it.yesLabel
         noLabel = it.noLabel
       }
 
       // Call the view
-      view?.get()?.displayCheatData(viewModel)
+      view?.get()?.displayCheatData(getViewModel())
+      //view?.get()?.displayCheatData(state)
     }
 
 
@@ -50,7 +58,7 @@ class CheatPresenter : CheatContract.Presenter {
 
     data?.let {
 
-      with(viewModel) {
+      with(state) {
 
         if (answer) {
           answerText = it.trueLabel
@@ -63,10 +71,20 @@ class CheatPresenter : CheatContract.Presenter {
       }
 
       // Call the view
-      view?.get()?.displayCheatData(viewModel)
+      view?.get()?.displayCheatData(getViewModel())
+      //view?.get()?.displayCheatData(state)
     }
   }
 
+
+  private fun getViewModel(): CheatViewModel {
+
+    return CheatViewModel(
+      state.questionText, state.answerText,
+      state.yesLabel, state.noLabel,
+      state.yesEnabled, state.noEnabled
+    )
+  }
 
   override fun clickNoButton() {
     router.passDataToQuestionScreen(false)

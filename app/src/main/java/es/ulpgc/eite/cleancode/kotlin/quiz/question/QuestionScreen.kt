@@ -17,9 +17,9 @@ object QuestionScreen {
     presenter.view = WeakReference(view)
     presenter.router = router
 
-    presenter.viewModel = ViewModelProviders
+    presenter.state = ViewModelProviders
       .of(activity)
-      .get(QuestionViewModel::class.java)
+      .get(QuestionState::class.java)
 
     val model = QuestionModel(activity = WeakReference(activity))
     presenter.model = model
@@ -41,9 +41,9 @@ object QuestionScreen {
     presenter.view = WeakReference(view)
     presenter.router = router
 
-    presenter.viewModel = ViewModelProviders
+    presenter.state = ViewModelProviders
       .of(fragment)
-      .get(QuestionViewModel::class.java)
+      .get(QuestionState::class.java)
 
     val model = QuestionModel(fragment = WeakReference(fragment))
     presenter.model = model

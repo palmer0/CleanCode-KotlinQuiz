@@ -47,7 +47,7 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
   }
 
 
-  fun fetchData() {
+  private fun fetchData() {
 
     // Call the presenter to fetch the data
     presenter.fetchQuestionData()
@@ -70,6 +70,26 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
     cheatButton.isEnabled = viewModel.cheatEnabled
     nextButton.isEnabled = viewModel.nextEnabled
   }
+
+  /*
+  override fun displayQuestionData(state: QuestionState) {
+    Log.d(TAG, "displayQuestionData()")
+
+    // Deal with the data, update the states, ui etc..
+    questionText.text = state.questionText
+    answerText.text = state.answerText
+
+    trueButton.text = state.trueLabel
+    falseButton.text = state.falseLabel
+    cheatButton.text = state.cheatLabel
+    nextButton.text = state.nextLabel
+
+    trueButton.isEnabled = state.trueEnabled
+    falseButton.isEnabled = state.falseEnabled
+    cheatButton.isEnabled = state.cheatEnabled
+    nextButton.isEnabled = state.nextEnabled
+  }
+  */
 
   companion object {
     const val TAG = "QuestionActivity"

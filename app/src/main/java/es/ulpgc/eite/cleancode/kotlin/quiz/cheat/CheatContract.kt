@@ -5,7 +5,8 @@ interface CheatContract {
   interface View {
     var presenter: CheatContract.Presenter
 
-    fun displayCheatData(viewModel: CheatViewModel)
+    //fun displayCheatData(state: CheatState)
+    fun displayCheatData(state: CheatViewModel)
   }
 
   interface Presenter {

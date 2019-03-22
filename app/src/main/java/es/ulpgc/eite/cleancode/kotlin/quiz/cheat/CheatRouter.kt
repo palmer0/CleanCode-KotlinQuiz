@@ -9,7 +9,7 @@ class CheatRouter : CheatContract.Router {
   //var fragment: WeakReference<Fragment>? = null
   var activity: WeakReference<FragmentActivity>? = null
 
-  private fun _passDataToQuestionScreen(
+  private fun passDataToQuestionScreen(
     mediator: AppMediator, cheated: Boolean?
   ) {
 
@@ -19,17 +19,17 @@ class CheatRouter : CheatContract.Router {
   override fun passDataToQuestionScreen(cheated: Boolean?) {
 
     activity?.get()?.let {
-      _passDataToQuestionScreen(it.application as AppMediator, cheated)
+      passDataToQuestionScreen(it.application as AppMediator, cheated)
     }
 
     /*
     fragment?.get()?.activity?.let {
-      _passDataToQuestionScreen(it.application as AppMediator, cheated)
+      passDataToQuestionScreen(it.application as AppMediator, cheated)
     }
     */
   }
 
-  private fun _getDataFromQuestionScreen(mediator: AppMediator): Boolean? {
+  private fun getDataFromQuestionScreen(mediator: AppMediator): Boolean? {
     val answer = mediator.answer
     mediator.answer = null
     return answer
@@ -38,12 +38,12 @@ class CheatRouter : CheatContract.Router {
 
   override fun getDataFromQuestionScreen(): Boolean? {
     activity?.get()?.let {
-      return _getDataFromQuestionScreen(it.application as AppMediator)
+      return getDataFromQuestionScreen(it.application as AppMediator)
     }
 
     /*
     fragment?.get()?.activity?.let {
-      return _getDataFromQuestionScreen(it.application as AppMediator)
+      return getDataFromQuestionScreen(it.application as AppMediator)
     }
     */
 

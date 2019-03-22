@@ -3,10 +3,20 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.question
 import android.util.Log
 import java.lang.ref.WeakReference
 
+
+data class QuestionViewModel(
+  val questionText: String?, val answerText: String?,
+  val trueLabel: String?, val falseLabel: String?,
+  val cheatLabel: String?, val nextLabel: String?,
+  val trueEnabled: Boolean, val falseEnabled: Boolean,
+  val cheatEnabled: Boolean, val nextEnabled: Boolean
+)
+
+
 class QuestionPresenter : QuestionContract.Presenter {
 
   var view: WeakReference<QuestionContract.View>? = null
-  lateinit var viewModel: QuestionViewModel
+  lateinit var state: QuestionState
   lateinit var model: QuestionContract.Model
   lateinit var router: QuestionContract.Router
 
@@ -29,9 +39,9 @@ class QuestionPresenter : QuestionContract.Presenter {
 
     data?.let {
 
-      with(viewModel) {
+      with(state) {
 
-        questionText = model.getCurrentQuestion(viewModel.quizIndex)
+        questionText = model.getCurrentQuestion(state.quizIndex)
 
         trueLabel = it.trueLabel
         falseLabel = it.falseLabel
@@ -40,21 +50,22 @@ class QuestionPresenter : QuestionContract.Presenter {
       }
 
       // Call the view
-      view?.get()?.displayQuestionData(viewModel)
+      view?.get()?.displayQuestionData(getScreenData())
+      //view?.get()?.displayQuestionData(state)
     }
   }
 
 
   private fun fetchAnswerData(userAnswer: Boolean) {
-    Log.d(TAG, "fetchAnswerData()")
+    Log.d(TAG, "fetchResultData()")
 
     // Call the model
-    val answer = model.getCurrentAnswer(viewModel.quizIndex)
-    val data = model.fetchAnswerData()
+    val answer = model.getCurrentAnswer(state.quizIndex)
+    val data = model.fetchResultData()
 
     data?.let {
 
-      with(viewModel) {
+      with(state) {
 
         if (answer == userAnswer) {
           answerText = it.correctLabel
@@ -69,7 +80,8 @@ class QuestionPresenter : QuestionContract.Presenter {
       }
 
       // Call the view
-      view?.get()?.displayQuestionData(viewModel)
+      view?.get()?.displayQuestionData(getScreenData())
+      //view?.get()?.displayQuestionData(state)
     }
 
   }
@@ -77,11 +89,11 @@ class QuestionPresenter : QuestionContract.Presenter {
   override fun clickNextButton() {
     Log.d(TAG, "clickNextButton()")
 
-    with(viewModel) {
+    with(state) {
 
       quizIndex++
 
-      questionText = model.getCurrentQuestion(viewModel.quizIndex)
+      questionText = model.getCurrentQuestion(state.quizIndex)
       answerText = ""
 
       trueEnabled = true
@@ -91,11 +103,25 @@ class QuestionPresenter : QuestionContract.Presenter {
     }
 
     // Call the view
-    view?.get()?.displayQuestionData(viewModel)
+    view?.get()?.displayQuestionData(getScreenData())
+    //view?.get()?.displayQuestionData(state)
+  }
+
+
+  private fun getScreenData(): QuestionViewModel {
+
+    return QuestionViewModel(
+      state.questionText, state.answerText,
+      state.trueLabel, state.falseLabel,
+      state.cheatLabel, state.nextLabel,
+
+      state.trueEnabled, state.falseEnabled,
+      state.cheatEnabled, state.nextEnabled
+    )
   }
 
   override fun clickCheatButton() {
-    val answer = model.getCurrentAnswer(viewModel.quizIndex)
+    val answer = model.getCurrentAnswer(state.quizIndex)
 
     router.passDataToCheatScreen(answer)
     router.navigateToCheatScreen()

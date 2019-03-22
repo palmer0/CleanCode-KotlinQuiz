@@ -2,7 +2,7 @@ package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.arch.lifecycle.ViewModel
 
-class QuestionViewModel : ViewModel() {
+class QuestionState : ViewModel() {
 
   var quizIndex = 0
 

@@ -11,7 +11,7 @@ data class QuestionData(
   val cheatLabel: String?, val nextLabel: String?
 )
 
-data class AnswerData(
+data class ResultData(
   val correctLabel: String?, val incorrectLabel: String?
 )
 
@@ -25,35 +25,35 @@ class QuestionModel(
     Log.d(TAG, "fetchQuestionData()")
 
     activity?.get()?.resources?.let {
-      return _fetchQuestionData(it)
+      return fetchQuestionData(it)
     }
 
     /*
     fragment?.get()?.resources?.let {
-      return _fetchQuestionData(it)
+      return fetchQuestionData(it)
     }
     */
 
     return null
   }
 
-  override fun fetchAnswerData(): AnswerData? {
-    Log.d(TAG, "fetchAnswerData()")
+  override fun fetchResultData(): ResultData? {
+    Log.d(TAG, "fetchResultData()")
 
     activity?.get()?.resources?.let {
-      return _fetchAnswerData(it)
+      return fetchResultData(it)
     }
 
     /*
     fragment?.get()?.resources?.let {
-      return _fetchAnswerData(it)
+      return fetchResultData(it)
     }
     */
 
     return null
   }
 
-  private fun _fetchQuestionData(resources: Resources): QuestionData {
+  private fun fetchQuestionData(resources: Resources): QuestionData {
     var falseLabel = resources.getString(R.string.false_label)
     var trueLabel = resources.getString(R.string.true_label)
     var nextLabel = resources.getString(R.string.next_label)
@@ -63,21 +63,21 @@ class QuestionModel(
   }
 
 
-  private fun _fetchAnswerData(resources: Resources): AnswerData {
+  private fun fetchResultData(resources: Resources): ResultData {
     var correctLabel = resources.getString(R.string.correct_label)
     var incorrectLabel = resources.getString(R.string.incorrect_label)
 
-    return AnswerData(correctLabel, incorrectLabel)
+    return ResultData(correctLabel, incorrectLabel)
   }
 
   override fun getCurrentAnswer(index: Int): Boolean? {
     activity?.get()?.resources?.let {
-      return _getCurrentAnswer(it, index)
+      return getCurrentAnswer(it, index)
     }
 
     /*
     fragment?.get()?.resources?.let {
-      return _getCurrentAnswer(it, index)
+      return getCurrentAnswer(it, index)
     }
     */
 
@@ -87,24 +87,24 @@ class QuestionModel(
 
   override fun getCurrentQuestion(index: Int): String? {
     activity?.get()?.resources?.let {
-      return _getCurrentQuestion(it, index)
+      return getCurrentQuestion(it, index)
     }
 
     /*
     fragment?.get()?.resources?.let {
-      return _getCurrentQuestion(it, index)
+      return getCurrentQuestion(it, index)
     }
     */
 
     return null
   }
 
-  private fun _getCurrentQuestion(resources: Resources, index: Int): String? {
+  private fun getCurrentQuestion(resources: Resources, index: Int): String? {
     val questions = resources.getStringArray(R.array.questions)
     return questions.get(index)
   }
 
-  private fun _getCurrentAnswer(resources: Resources, index: Int): Boolean? {
+  private fun getCurrentAnswer(resources: Resources, index: Int): Boolean? {
     val answers = resources.getStringArray(R.array.answers)
     return answers.get(index)?.toBoolean()
   }

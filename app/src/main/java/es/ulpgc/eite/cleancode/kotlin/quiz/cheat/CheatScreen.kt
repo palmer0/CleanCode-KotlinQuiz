@@ -16,9 +16,9 @@ object CheatScreen {
     presenter.view = WeakReference(view)
     presenter.router = router
 
-    presenter.viewModel = ViewModelProviders
+    presenter.state = ViewModelProviders
       .of(activity)
-      .get(CheatViewModel::class.java)
+      .get(CheatState::class.java)
 
     val model = CheatModel(activity = WeakReference(activity))
     presenter.model = model
@@ -39,9 +39,9 @@ object CheatScreen {
     presenter.view = WeakReference(view)
     presenter.router = router
 
-    presenter.viewModel = ViewModelProviders
+    presenter.state = ViewModelProviders
       .of(fragment)
-      .get(CheatViewModel::class.java)
+      .get(CheatState::class.java)
 
     val model = CheatModel(fragment = WeakReference(fragment))
     presenter.model = model

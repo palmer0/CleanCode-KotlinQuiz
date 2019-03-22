@@ -45,7 +45,6 @@ class CheatFragment : Fragment(), CheatContract.View {
     presenter.fetchCheatData()
   }
 
-
   override fun displayCheatData(viewModel: CheatViewModel) {
     Log.d(TAG, "displayCheatData()")
 
@@ -61,6 +60,24 @@ class CheatFragment : Fragment(), CheatContract.View {
       noButton.isEnabled = viewModel.noEnabled
     }
   }
+
+  /*
+  override fun displayCheatData(state: CheatState) {
+    Log.d(TAG, "displayCheatData()")
+
+    // Deal with the data, update the states, ui etc..
+    with(rootView) {
+      questionText.text = state.questionText
+      answerText.text = state.answerText
+
+      yesButton.text = state.yesLabel
+      noButton.text = state.noLabel
+
+      yesButton.isEnabled = state.yesEnabled
+      noButton.isEnabled = state.noEnabled
+    }
+  }
+  */
 
   companion object {
     const val TAG = "CheatFragment"

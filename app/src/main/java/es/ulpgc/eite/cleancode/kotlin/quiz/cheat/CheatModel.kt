@@ -22,19 +22,19 @@ class CheatModel(
     Log.d(TAG, "fetchCheatData()")
 
     activity?.get()?.resources?.let {
-      return _fetchCheatData(it)
+      return fetchCheatData(it)
     }
 
     /*
     fragment?.get()?.resources?.let {
-      return _fetchCheatData(it)
+      return fetchCheatData(it)
     }
     */
 
     return null
   }
 
-  private fun _fetchCheatData(resources: Resources): CheatData {
+  private fun fetchCheatData(resources: Resources): CheatData {
     var falseLabel = resources.getString(R.string.false_label)
     var trueLabel = resources.getString(R.string.true_label)
     var noLabel = resources.getString(R.string.no_label)
