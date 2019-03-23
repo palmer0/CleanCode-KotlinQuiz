@@ -42,23 +42,17 @@ class QuestionActivity() : AppCompatActivity(), QuestionContract.View {
 
     //return
 
-    // Do some work
-    fetchData()
-  }
-
-
-  private fun fetchData() {
-
     // Call the presenter to fetch the data
     presenter.fetchQuestionData()
   }
+
 
   override fun displayQuestionData(viewModel: QuestionViewModel) {
     Log.d(TAG, "displayQuestionData()")
 
     // Deal with the data, update the states, ui etc..
     questionText.text = viewModel.questionText
-    answerText.text = viewModel.answerText
+    resultText.text = viewModel.resultText
 
     trueButton.text = viewModel.trueLabel
     falseButton.text = viewModel.falseLabel

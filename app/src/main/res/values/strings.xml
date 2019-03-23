@@ -1,7 +1,9 @@
 <resources>
     <string name="app_name">Quiz</string>
     <string name="question_label">Question</string>
+    <string name="warning_label">Warning</string>
     <string name="answer_label">Answer</string>
+    <string name="result_label">Result</string>
     <string name="button_label">Button</string>
     <string name="false_label">False</string>
     <string name="true_label">True</string>

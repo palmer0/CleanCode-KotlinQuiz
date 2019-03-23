@@ -13,8 +13,8 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/question_label"
-            android:id="@+id/questionText"
+            tools:text="@string/warning_label"
+            android:id="@+id/warningText"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:gravity="center_horizontal"/>
 

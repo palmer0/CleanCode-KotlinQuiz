@@ -4,7 +4,7 @@ import android.util.Log
 import java.lang.ref.WeakReference
 
 data class CheatViewModel(
-  val questionText: String?, val answerText: String?,
+  val warningText: String?, val answerText: String?,
   val yesLabel: String?, val noLabel: String?,
   val yesEnabled: Boolean, val noEnabled: Boolean
 )
@@ -25,7 +25,7 @@ class CheatPresenter : CheatContract.Presenter {
     data?.let {
 
       with(state) {
-        questionText = it.questionText
+        warningText = it.questionText
         yesLabel = it.yesLabel
         noLabel = it.noLabel
       }
@@ -78,7 +78,7 @@ class CheatPresenter : CheatContract.Presenter {
   private fun getViewModel(): CheatViewModel {
 
     return CheatViewModel(
-      state.questionText, state.answerText,
+      state.warningText, state.answerText,
       state.yesLabel, state.noLabel,
       state.yesEnabled, state.noEnabled
     )

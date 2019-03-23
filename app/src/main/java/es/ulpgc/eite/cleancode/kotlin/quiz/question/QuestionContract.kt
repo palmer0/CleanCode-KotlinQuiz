@@ -5,6 +5,7 @@ interface QuestionContract {
 
   interface View {
     var presenter: QuestionContract.Presenter
+
     fun displayQuestionData(viewModel: QuestionViewModel)
     //fun displayQuestionData(state: QuestionState)
   }

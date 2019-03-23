@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 
 class CheatState : ViewModel() {
 
-  var questionText: String? = null
+  var warningText: String? = null
   var answerText: String? = null
 
   var yesLabel: String? = null

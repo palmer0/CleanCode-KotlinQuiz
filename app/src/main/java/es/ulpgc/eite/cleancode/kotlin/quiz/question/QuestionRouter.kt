@@ -11,10 +11,7 @@ class QuestionRouter : QuestionContract.Router {
   //var fragment: WeakReference<Fragment>? = null
   var activity: WeakReference<FragmentActivity>? = null
 
-  private fun passDataToCheatScreen(
-    mediator: AppMediator,
-    answer: Boolean?
-  ) {
+  private fun passDataToCheatScreen(mediator: AppMediator, answer: Boolean?) {
     mediator.answer = answer
   }
 

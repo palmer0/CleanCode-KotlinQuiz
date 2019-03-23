@@ -14,8 +14,8 @@
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            tools:text="@string/question_label"
-            android:id="@+id/questionText"
+            tools:text="@string/warning_label"
+            android:id="@+id/warningText"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:gravity="center_horizontal"/>
 
@@ -70,7 +70,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             tools:text="@string/question_label"
-            android:id="@+id/questionText"
+            android:id="@+id/warningText"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             android:gravity="center"/>
 

@@ -7,7 +7,7 @@ class QuestionState : ViewModel() {
   var quizIndex = 0
 
   var questionText: String? = null
-  var answerText: String? = null
+  var resultText: String? = null
 
   var trueLabel: String? = null
   var falseLabel: String? = null

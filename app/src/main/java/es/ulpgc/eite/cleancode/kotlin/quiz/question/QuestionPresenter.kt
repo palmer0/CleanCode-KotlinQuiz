@@ -5,7 +5,7 @@ import java.lang.ref.WeakReference
 
 
 data class QuestionViewModel(
-  val questionText: String?, val answerText: String?,
+  val questionText: String?, val resultText: String?,
   val trueLabel: String?, val falseLabel: String?,
   val cheatLabel: String?, val nextLabel: String?,
   val trueEnabled: Boolean, val falseEnabled: Boolean,
@@ -67,9 +67,9 @@ class QuestionPresenter : QuestionContract.Presenter {
       with(state) {
 
         if (answer == userAnswer) {
-          answerText = it.correctLabel
+          resultText = it.correctLabel
         } else {
-          answerText = it.incorrectLabel
+          resultText = it.incorrectLabel
         }
 
         trueEnabled = false
@@ -92,7 +92,7 @@ class QuestionPresenter : QuestionContract.Presenter {
       quizIndex++
 
       questionText = model.getCurrentQuestion(state.quizIndex)
-      answerText = ""
+      resultText = ""
 
       trueEnabled = true
       falseEnabled = true
@@ -108,10 +108,9 @@ class QuestionPresenter : QuestionContract.Presenter {
   private fun getScreenData(): QuestionViewModel {
 
     return QuestionViewModel(
-      state.questionText, state.answerText,
+      state.questionText, state.resultText,
       state.trueLabel, state.falseLabel,
       state.cheatLabel, state.nextLabel,
-
       state.trueEnabled, state.falseEnabled,
       state.cheatEnabled, state.nextEnabled
     )

@@ -33,24 +33,20 @@ class CheatFragment : Fragment(), CheatContract.View {
     // Do the setup
     CheatScreen.configureFragment(this)
 
-    // Do some work
-    fetchData()
+    // Call the presenter to fetch the data
+    presenter.fetchCheatData()
+
 
     return rootView
   }
 
-  fun fetchData() {
-
-    // Call the presenter to fetch the data
-    presenter.fetchCheatData()
-  }
 
   override fun displayCheatData(viewModel: CheatViewModel) {
     Log.d(TAG, "displayCheatData()")
 
     // Deal with the data, update the states, ui etc..
     with(rootView) {
-      questionText.text = viewModel.questionText
+      warningText.text = viewModel.warningText
       answerText.text = viewModel.answerText
 
       yesButton.text = viewModel.yesLabel

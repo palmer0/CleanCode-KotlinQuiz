@@ -9,9 +9,7 @@ class CheatRouter : CheatContract.Router {
   //var fragment: WeakReference<Fragment>? = null
   var activity: WeakReference<FragmentActivity>? = null
 
-  private fun passDataToQuestionScreen(
-    mediator: AppMediator, cheated: Boolean?
-  ) {
+  private fun passDataToQuestionScreen(mediator: AppMediator, cheated: Boolean?) {
 
     mediator.cheated = cheated
   }
