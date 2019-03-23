@@ -41,7 +41,10 @@ class QuestionPresenter : QuestionContract.Presenter {
 
       with(state) {
 
-        questionText = model.getCurrentQuestion(state.quizIndex)
+        model.setCurrentIndex(quizIndex)
+
+        //questionText = model.getCurrentQuestion(state.quizIndex)
+        questionText = model.getCurrentQuestion()
 
         trueLabel = it.trueLabel
         falseLabel = it.falseLabel
@@ -59,7 +62,8 @@ class QuestionPresenter : QuestionContract.Presenter {
     Log.d(TAG, "fetchResultData()")
 
     // Call the model
-    val answer = model.getCurrentAnswer(state.quizIndex)
+    val answer = model.getCurrentAnswer()
+    //val answer = model.getCurrentAnswer(state.quizIndex)
     val data = model.fetchResultData()
 
     data?.let {
@@ -87,11 +91,15 @@ class QuestionPresenter : QuestionContract.Presenter {
   override fun clickNextButton() {
     Log.d(TAG, "clickNextButton()")
 
+    model.incrCurrentIndex()
+
     with(state) {
 
-      quizIndex++
+      //quizIndex++
+      quizIndex = model.getCurrentIndex()
 
-      questionText = model.getCurrentQuestion(state.quizIndex)
+      //questionText = model.getCurrentQuestion(state.quizIndex)
+      questionText = model.getCurrentQuestion()
       resultText = ""
 
       trueEnabled = true
@@ -117,7 +125,8 @@ class QuestionPresenter : QuestionContract.Presenter {
   }
 
   override fun clickCheatButton() {
-    val answer = model.getCurrentAnswer(state.quizIndex)
+    //val answer = model.getCurrentAnswer(state.quizIndex)
+    val answer = model.getCurrentAnswer()
 
     router.passDataToCheatScreen(answer)
     router.navigateToCheatScreen()

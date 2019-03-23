@@ -21,9 +21,14 @@ interface QuestionContract {
   interface Model {
 
     fun fetchQuestionData(): QuestionData?
-    fun getCurrentAnswer(index: Int): Boolean?
     fun fetchResultData(): ResultData?
-    fun getCurrentQuestion(index: Int): String?
+    fun getCurrentAnswer(): Boolean?
+    fun getCurrentQuestion(): String?
+    fun incrCurrentIndex()
+    fun getCurrentIndex(): Int
+    fun setCurrentIndex(index: Int)
+    //fun getCurrentAnswer(index: Int): Boolean?
+    //fun getCurrentQuestion(index: Int): String?
   }
 
   interface Router {

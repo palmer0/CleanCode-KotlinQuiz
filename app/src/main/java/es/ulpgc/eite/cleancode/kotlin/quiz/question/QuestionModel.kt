@@ -20,6 +20,19 @@ class QuestionModel(
   var activity: WeakReference<FragmentActivity>? = null
 ) : QuestionContract.Model {
 
+  var quizIndex = 0
+
+  override fun incrCurrentIndex() {
+    quizIndex++
+  }
+
+  override fun getCurrentIndex(): Int {
+    return quizIndex
+  }
+
+  override fun setCurrentIndex(index: Int) {
+    quizIndex = index
+  }
 
   override fun fetchQuestionData(): QuestionData? {
     Log.d(TAG, "fetchQuestionData()")
@@ -70,9 +83,10 @@ class QuestionModel(
     return ResultData(correctLabel, incorrectLabel)
   }
 
-  override fun getCurrentAnswer(index: Int): Boolean? {
+
+  override fun getCurrentAnswer(): Boolean? {
     activity?.get()?.resources?.let {
-      return getCurrentAnswer(it, index)
+      return getCurrentAnswer(it)
     }
 
     /*
@@ -85,9 +99,9 @@ class QuestionModel(
   }
 
 
-  override fun getCurrentQuestion(index: Int): String? {
+  override fun getCurrentQuestion(): String? {
     activity?.get()?.resources?.let {
-      return getCurrentQuestion(it, index)
+      return getCurrentQuestion(it)
     }
 
     /*
@@ -99,15 +113,56 @@ class QuestionModel(
     return null
   }
 
-  private fun getCurrentQuestion(resources: Resources, index: Int): String? {
+//  override fun getCurrentAnswer(index: Int): Boolean? {
+//    activity?.get()?.resources?.let {
+//      return getCurrentAnswer(it, index)
+//    }
+//
+//    /*
+//    fragment?.get()?.resources?.let {
+//      return getCurrentAnswer(it, index)
+//    }
+//    */
+//
+//    return null
+//  }
+//
+//
+//  override fun getCurrentQuestion(index: Int): String? {
+//    activity?.get()?.resources?.let {
+//      return getCurrentQuestion(it, index)
+//    }
+//
+//    /*
+//    fragment?.get()?.resources?.let {
+//      return getCurrentQuestion(it, index)
+//    }
+//    */
+//
+//    return null
+//  }
+
+
+  private fun getCurrentQuestion(resources: Resources): String? {
     val questions = resources.getStringArray(R.array.questions)
-    return questions.get(index)
+    return questions.get(quizIndex)
   }
 
-  private fun getCurrentAnswer(resources: Resources, index: Int): Boolean? {
+  private fun getCurrentAnswer(resources: Resources): Boolean? {
     val answers = resources.getStringArray(R.array.answers)
-    return answers.get(index)?.toBoolean()
+    return answers.get(quizIndex)?.toBoolean()
   }
+
+
+//  private fun getCurrentQuestion(resources: Resources, index: Int): String? {
+//    val questions = resources.getStringArray(R.array.questions)
+//    return questions.get(index)
+//  }
+//
+//  private fun getCurrentAnswer(resources: Resources, index: Int): Boolean? {
+//    val answers = resources.getStringArray(R.array.answers)
+//    return answers.get(index)?.toBoolean()
+//  }
 
   companion object {
     const val TAG = "QuestionModel"
