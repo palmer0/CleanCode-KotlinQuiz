@@ -7,7 +7,7 @@ import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import java.lang.ref.WeakReference
 
 data class CheatData(
-  val questionText: String?,
+  val warningText: String?,
   val trueLabel: String?, val falseLabel: String?,
   val yesLabel: String?, val noLabel: String?
 )
@@ -39,10 +39,10 @@ class CheatModel(
     var trueLabel = resources.getString(R.string.true_label)
     var noLabel = resources.getString(R.string.no_label)
     var yesLabel = resources.getString(R.string.yes_label)
-    var questionText = resources.getString(R.string.question)
+    var warningText = resources.getString(R.string.warning_text)
 
     return CheatData(
-      questionText, trueLabel, falseLabel, yesLabel, noLabel
+      warningText, trueLabel, falseLabel, yesLabel, noLabel
     )
   }
 

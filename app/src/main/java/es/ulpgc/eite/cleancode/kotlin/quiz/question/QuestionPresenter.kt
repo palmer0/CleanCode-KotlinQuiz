@@ -43,7 +43,7 @@ class QuestionPresenter : QuestionContract.Presenter {
 
         model.setCurrentIndex(quizIndex)
 
-        //questionText = model.getCurrentQuestion(state.quizIndex)
+        //warningText = model.getCurrentQuestion(state.quizIndex)
         questionText = model.getCurrentQuestion()
 
         trueLabel = it.trueLabel
@@ -98,7 +98,7 @@ class QuestionPresenter : QuestionContract.Presenter {
       //quizIndex++
       quizIndex = model.getCurrentIndex()
 
-      //questionText = model.getCurrentQuestion(state.quizIndex)
+      //warningText = model.getCurrentQuestion(state.quizIndex)
       questionText = model.getCurrentQuestion()
       resultText = ""
 

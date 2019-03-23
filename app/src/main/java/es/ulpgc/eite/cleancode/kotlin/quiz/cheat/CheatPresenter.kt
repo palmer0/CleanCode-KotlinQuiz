@@ -25,7 +25,7 @@ class CheatPresenter : CheatContract.Presenter {
     data?.let {
 
       with(state) {
-        warningText = it.questionText
+        warningText = it.warningText
         yesLabel = it.yesLabel
         noLabel = it.noLabel
       }

@@ -11,7 +11,7 @@
     <string name="cheat_label">Cheat</string>
     <string name="correct_label">Correct!</string>
     <string name="incorrect_label">Incorrect!</string>
-    <string name="question">Are you sure?</string>
+    <string name="warning_text">Are you sure?</string>
     <string name="yes_label">Yes</string>
     <string name="no_label">No</string>
 
