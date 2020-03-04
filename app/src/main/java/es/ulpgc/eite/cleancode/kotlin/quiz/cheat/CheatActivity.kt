@@ -1,8 +1,8 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import kotlinx.android.synthetic.main.activity_cheat.*
 

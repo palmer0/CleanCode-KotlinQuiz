@@ -1,6 +1,7 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
-import android.arch.lifecycle.ViewModel
+import androidx.lifecycle.ViewModel
+
 
 class QuestionState : ViewModel() {
 

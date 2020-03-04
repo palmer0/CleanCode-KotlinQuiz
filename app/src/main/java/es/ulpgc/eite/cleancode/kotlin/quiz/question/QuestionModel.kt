@@ -1,8 +1,8 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.content.res.Resources
-import android.support.v4.app.FragmentActivity
 import android.util.Log
+import androidx.fragment.app.FragmentActivity
 import es.ulpgc.eite.cleancode.kotlin.quiz.R
 import java.lang.ref.WeakReference
 

@@ -1,7 +1,7 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
-import android.arch.lifecycle.ViewModelProviders
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
+import androidx.lifecycle.ViewModelProviders
 import java.lang.ref.WeakReference
 
 object CheatScreen {

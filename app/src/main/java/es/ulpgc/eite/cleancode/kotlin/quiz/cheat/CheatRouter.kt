@@ -1,6 +1,6 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.cheat
 
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import es.ulpgc.eite.cleancode.kotlin.quiz.app.AppMediator
 import java.lang.ref.WeakReference
 

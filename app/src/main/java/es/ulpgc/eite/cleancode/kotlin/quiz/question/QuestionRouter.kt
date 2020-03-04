@@ -1,7 +1,7 @@
 package es.ulpgc.eite.cleancode.kotlin.quiz.question
 
 import android.content.Intent
-import android.support.v4.app.FragmentActivity
+import androidx.fragment.app.FragmentActivity
 import es.ulpgc.eite.cleancode.kotlin.quiz.app.AppMediator
 import es.ulpgc.eite.cleancode.kotlin.quiz.cheat.CheatActivity
 import java.lang.ref.WeakReference
@@ -53,6 +53,7 @@ class QuestionRouter : QuestionContract.Router {
   private fun navigateToCheatScreen(mediator: AppMediator) {
     val context = mediator.baseContext
     val intent = Intent(context, CheatActivity::class.java)
+    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
     context.startActivity(intent)
   }
 
